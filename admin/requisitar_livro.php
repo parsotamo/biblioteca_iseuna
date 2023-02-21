@@ -169,8 +169,8 @@ include '../cabecalho.php';
     <h1>Gestão de Pedidos de Livros</h1>
     <?php
 
-    if (isset($_GET["action"])) {
-        if ($_GET["action"] == 'add') {
+    if (isset($_GET["accao"])) {
+        if ($_GET["accao"] == 'adicionar') {
     ?>
             <ol class="breadcrumb mt-4 mb-4 bg-light p-2 border">
                 <li class="breadcrumb-item"><a href="index.php">Painel de Controle</a></li>
@@ -291,8 +291,8 @@ include '../cabecalho.php';
                 </div>
             </div>
         <?php
-        } else if ($_GET["action"] == 'view') {
-            $id_livro = converter_dados($_GET["code"], 'decrypt');
+        } else if ($_GET["accao"] == 'view') {
+            $id_livro = converter_dados($_GET["codigo"], 'decrypt');
 
             if ($id_livro > 0) {
                 $query = "
@@ -453,7 +453,7 @@ include '../cabecalho.php';
 
         <?php
         if (isset($_GET['msg'])) {
-            if ($_GET['msg'] == 'add') {
+            if ($_GET['msg'] == 'adicionar') {
                 echo '<div class="alert alert-success alert-dismissible fade show" role="alert">Livro requisitado com sucesso!<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
             }
 
@@ -559,7 +559,7 @@ include '../cabecalho.php';
         					<td>' . $multas . ' ' . $currency_symbol . '</td>
         					<td>' . $estado_livro . '</td>
         					<td>
-                                <a href="requisitar_livro.php?action=view&code=' . converter_dados($row["id_livro"]) . '" class="btn btn-info btn-sm">Visualizar</a>
+                                <a href="requisitar_livro.php?action=view&codigo=' . converter_dados($row["id_livro"]) . '" class="btn btn-info btn-sm">Visualizar</a>
                             </td>
         				</tr>
         				';

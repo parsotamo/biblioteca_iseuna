@@ -70,7 +70,7 @@ function get_moeda($connect)
 	foreach ($result as $row) {
 		$currency_data = array_moeda();
 		foreach ($currency_data as $currency) {
-			if ($currency["code"] == $row['moeda']) {
+			if ($currency["codigo"] == $row['moeda']) {
 				$output = '<span style="font-family: DejaVu Sans;">' . $currency["symbol"] . '</span>&nbsp;';
 			}
 		}
@@ -964,7 +964,7 @@ function Currency_list()
 		';
 	$data = array_moeda();
 	foreach ($data as $row) {
-		$html .= '<option value="' . $row["code"] . '">' . $row["name"] . '</option>';
+		$html .= '<option value="' . $row["codigo"] . '">' . $row["name"] . '</option>';
 	}
 	return $html;
 }

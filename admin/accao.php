@@ -4,8 +4,8 @@
 
 include '../base_dados_con.php';
 
-if (isset($_POST["action"])) {
-	if ($_POST["action"] == 'procurar_livro_isbn') {
+if (isset($_POST["accao"])) {
+	if ($_POST["accao"] == 'procurar_livro_isbn') {
 		$query = "
 		SELECT numero_isbn, nome FROM livro 
 		WHERE numero_isbn LIKE '%" . $_POST["request"] . "%' 
@@ -25,7 +25,7 @@ if (isset($_POST["action"])) {
 		echo json_encode($data);
 	}
 
-	if ($_POST["action"] == 'procurar_id_usuario') {
+	if ($_POST["accao"] == 'procurar_id_usuario') {
 		$query = "
 		SELECT unique_id, nome FROM usuario 
 		WHERE unique_id LIKE '%" . $_POST["request"] . "%' 

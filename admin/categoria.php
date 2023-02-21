@@ -104,8 +104,8 @@ if (isset($_POST["edit_category"])) {
 	}
 }
 
-if (isset($_GET["action"], $_GET["code"], $_GET["Estado"]) && $_GET["action"] == 'delete') {
-	$id = $_GET["code"];
+if (isset($_GET["accao"], $_GET["codigo"], $_GET["Estado"]) && $_GET["accao"] == "apagar") {
+	$id = $_GET["codigo"];
 	$Estado = $_GET["Estado"];
 	$data = array(
 		':estado'			=>	$Estado,
@@ -145,7 +145,7 @@ include '../cabecalho.php';
 	<?php
 
 	if (isset($_GET['action'])) {
-		if ($_GET['action'] == 'add') {
+		if ($_GET['action'] == 'adicionar') {
 	?>
 
 			<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border">
@@ -188,8 +188,8 @@ include '../cabecalho.php';
 
 
 			<?php
-		} else if ($_GET["action"] == 'edit') {
-			$id = converter_dados($_GET["code"], 'decrypt');
+		} else if ($_GET["accao"] == 'editar') {
+			$id = converter_dados($_GET["codigo"], 'decrypt');
 
 			if ($id > 0) {
 				$query = "
@@ -250,11 +250,11 @@ include '../cabecalho.php';
 		<?php
 
 		if (isset($_GET['msg'])) {
-			if ($_GET['msg'] == 'add') {
+			if ($_GET['msg'] == 'adicionar') {
 				echo '<div class="alert alert-success alert-dismissible fade show" role="alert">Nova Categoria Adicionada<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
 			}
 
-			if ($_GET["msg"] == 'edit') {
+			if ($_GET["msg"] == 'editar') {
 				echo '<div class="alert alert-success alert-dismissible fade show" role="alert">Dados de Categoria Actualizados<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
 			}
 			if ($_GET["msg"] == 'disable') {
@@ -320,8 +320,8 @@ include '../cabecalho.php';
 							<td>' . $row["criado_em"] . '</td>
 							<td>' . $row["actualizado_em"] . '</td>
 							<td>
-								<a href="categoria.php?action=edit&code=' . converter_dados($row["id"]) . '" class="btn btn-sm btn-primary">Alterar</a>
-								<button name="delete_button" class="btn-' . $cor_estado . ' btn-sm" onclick="delete_data(`' . $row["id"] . '`, `' . $row["estado"] . '`)"> ' . $string_estado . ' </button>
+								<a href="categoria.php?action=edit&codigo=' . converter_dados($row["id"]) . '" class="btn btn-sm btn-primary">Alterar</a>
+								<button name="delete_button" class="btn-' . $cor_estado . ' btn-sm" onclick="apagar_dados(`' . $row["id"] . '`, `' . $row["estado"] . '`)"> ' . $string_estado . ' </button>
 							</td>
 						</tr>
 						';
@@ -339,7 +339,7 @@ include '../cabecalho.php';
 				</table>
 
 				<script>
-					function delete_data(code, Estado) {
+					function apagar_dados(code, Estado) {
 						var novo_Estado = 'desativado';
 
 						if (Estado == 'desativado') {
@@ -347,7 +347,7 @@ include '../cabecalho.php';
 						}
 
 						if (confirm("Tem certeza que deseja " + novo_Estado + " esta Categoria")) {
-							window.location.href = "categoria.php?action=delete&code=" + code + "&Estado=" + novo_Estado + "";
+							window.location.href = "categoria.php?action=apagar&codigo=" + code + "&Estado=" + novo_Estado + "";
 						}
 					}
 				</script>

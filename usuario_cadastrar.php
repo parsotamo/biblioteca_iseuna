@@ -157,7 +157,7 @@ if (isset($_POST["register_button"])) {
 			// $mail->Body = '
 			//  <p>Obrigado por se registar na Biblioteca ISEUNA. Seu endereço único é <b>' . $user_unique_id . '</b> que será usado para requisitar livro.</p>
 			//     <p>Este email é de verificação, por favor clica no link para verificar o endereço de email.</p>
-			//     <p><a href="' . base_url() . 'verificacao.php?code=' . $codigo_verificacao . '">Clica para verificar</a></p>
+			//     <p><a href="' . base_url() . 'verificacao.php?codigo=' . $codigo_verificacao . '">Clica para verificar</a></p>
 			//     <p>Obrigado...</p>
 			// ';
 

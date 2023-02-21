@@ -10,9 +10,9 @@ if (!is_admin_entrada()) {
 	header('location:../admin_entrada.php');
 }
 
-if (isset($_GET["action"], $_GET['status'], $_GET['code']) && $_GET["action"] == 'delete') {
-	$id_usuario = $_GET["code"];
-	$status = $_GET["status"];
+if (isset($_GET["accao"], $_GET['status'], $_GET['code']) && $_GET["accao"] == "apagar") {
+	$id_usuario = $_GET["codigo"];
+	$status = $_GET["estado"];
 
 	$data = array(
 		':estado'		=>	$status,
@@ -134,7 +134,7 @@ include '../cabecalho.php';
     						<td>' . $estado . '</td>
     						<td>' . $row["criado_em"] . '</td>
     						<td>' . $row["actualizado_em"] . '</td>
-    						<td><button type="button" name="delete_button" class="btn btn-' . $estadoCor . ' btn-sm" onclick="delete_data(`' . $row["unique_id"] . '`, `' . $row["estado"] . '`)">' . $estadoString . '</td>
+    						<td><button type="button" name="delete_button" class="btn btn-' . $estadoCor . ' btn-sm" onclick="apagar_dados(`' . $row["unique_id"] . '`, `' . $row["estado"] . '`)">' . $estadoString . '</td>
     					</tr>
     					';
 						}
@@ -154,14 +154,14 @@ include '../cabecalho.php';
 </div>
 
 <script>
-	function delete_data(code, estado) {
+	function apagar_dados(code, estado) {
 		var novo_estado = 'activado';
 		if (estado == 'activado') {
 			novo_estado = 'desativado';
 		}
 		var novo_estado_str = novo_estado === 'activado' ? 'activar' : 'desativar';
 		if (confirm("Tem certeza que deseja " + novo_estado_str + " este Usuário?")) {
-			window.location.href = "usuario.php?action=delete&code=" + code + "&status=" + novo_estado + "";
+			window.location.href = "usuario.php?action=apagar&codigo=" + code + "&estado=" + novo_estado + "";
 		}
 	}
 </script>

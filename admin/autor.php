@@ -14,7 +14,7 @@ $message = '';
 
 $error = '';
 
-if (isset($_POST["add_author"])) {
+if (isset($_POST["adicionar_autor"])) {
 	$formdata = array();
 
 	if (empty($_POST["nome"])) {
@@ -57,7 +57,7 @@ if (isset($_POST["add_author"])) {
 	}
 }
 
-if (isset($_POST["edit_author"])) {
+if (isset($_POST["editar_autor"])) {
 	$formdata = array();
 
 	if (empty($_POST["nome"])) {
@@ -104,10 +104,10 @@ if (isset($_POST["edit_author"])) {
 	}
 }
 
-if (isset($_GET["action"], $_GET["code"], $_GET["status"]) && $_GET["action"] == 'delete') {
-	$id = $_GET["code"];
+if (isset($_GET["accao"], $_GET["codigo"], $_GET["estado"]) && $_GET["accao"] == "apagar") {
+	$id = $_GET["codigo"];
 
-	$status = $_GET["status"];
+	$status = $_GET["estado"];
 
 	$data = array(
 		':estado'			=>	$status,
@@ -147,8 +147,8 @@ include '../cabecalho.php';
 	<h1>Gestão de Autores</h1>
 	<?php
 
-	if (isset($_GET["action"])) {
-		if ($_GET["action"] == "add") {
+	if (isset($_GET["accao"])) {
+		if ($_GET["accao"] == "add") {
 	?>
 
 			<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border">
@@ -177,7 +177,7 @@ include '../cabecalho.php';
 									<input type="text" name="nome" id="nome" class="form-control" />
 								</div>
 								<div class="mt-4 mb-0">
-									<input type="submit" name="add_author" class="btn btn-success" value="Add" />
+									<input type="submit" name="adicionar_autor" class="btn btn-success" value="Add" />
 								</div>
 							</form>
 						</div>
@@ -186,8 +186,8 @@ include '../cabecalho.php';
 			</div>
 
 			<?php
-		} else if ($_GET["action"] == 'edit') {
-			$id = converter_dados($_GET["code"], 'decrypt');
+		} else if ($_GET["accao"] == 'editar') {
+			$id = converter_dados($_GET["codigo"], 'decrypt');
 
 			if ($id > 0) {
 				$query = "
@@ -220,7 +220,7 @@ include '../cabecalho.php';
 										</div>
 										<div class="mt-4 mb-0">
 											<input type="hidden" name="id" value="<?php echo $_GET['code']; ?>" />
-											<input type="submit" name="edit_author" class="btn btn-primary" value="Actualizar" />
+											<input type="submit" name="editar_autor" class="btn btn-primary" value="Actualizar" />
 										</div>
 									</form>
 								</div>
@@ -242,10 +242,10 @@ include '../cabecalho.php';
 		<?php
 
 		if (isset($_GET["msg"])) {
-			if ($_GET["msg"] == 'add') {
+			if ($_GET["msg"] == 'adicionar') {
 				echo '<div class="alert alert-success alert-dismissible fade show" role="alert">Novo Autor Adicionado<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
 			}
-			if ($_GET['msg'] == 'edit') {
+			if ($_GET['msg'] == 'editar') {
 				echo '<div class="alert alert-success alert-dismissible fade show" role="alert">Dados do Autor Actualizados<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
 			}
 			if ($_GET["msg"] == 'desativado') {
@@ -308,8 +308,8 @@ include '../cabecalho.php';
 							<td>' . $row["criado_em"] . '</td>
 							<td>' . $row["actualizado_em"] . '</td>
 							<td>
-								<a href="autor.php?action=edit&code=' . converter_dados($row["id"]) . '" class="btn btn-sm btn-primary">Edit</a>
-								<button type="button" name="delete_button" class="btn btn-' . $estadoCor . ' btn-sm" onclick="delete_data(`' . $row["id"] . '`, `' . $row["estado"] . '`)">' . $estadoString . '</button>
+								<a href="autor.php?action=edit&codigo=' . converter_dados($row["id"]) . '" class="btn btn-sm btn-primary">Edit</a>
+								<button type="button" name="delete_button" class="btn btn-' . $estadoCor . ' btn-sm" onclick="apagar_dados(`' . $row["id"] . '`, `' . $row["estado"] . '`)">' . $estadoString . '</button>
 							</td>
 						</tr>
 						';
@@ -328,7 +328,7 @@ include '../cabecalho.php';
 		</div>
 
 		<script>
-			function delete_data(code, estado) {
+			function apagar_dados(code, estado) {
 				var novo_estado = 'activado';
 
 				if (estado == 'activado') {
@@ -337,7 +337,7 @@ include '../cabecalho.php';
 				var novo_estado_str = novo_estado === 'activado' ? 'activar' : 'desativar';
 
 				if (confirm("Tem certeza que deseja " + novo_estado_str + " este autor?")) {
-					window.location.href = "autor.php?action=delete&code=" + code + "&status=" + novo_estado + "";
+					window.location.href = "autor.php?action=apagar&codigo=" + code + "&estado=" + novo_estado + "";
 				}
 			}
 		</script>

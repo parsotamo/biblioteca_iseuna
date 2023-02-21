@@ -104,10 +104,10 @@ if (isset($_POST["edit_armario"])) {
 	}
 }
 
-if (isset($_GET["action"], $_GET["code"], $_GET["status"]) && $_GET["action"] == 'delete') {
-	$id = $_GET["code"];
+if (isset($_GET["accao"], $_GET["codigo"], $_GET["estado"]) && $_GET["accao"] == "apagar") {
+	$id = $_GET["codigo"];
 
-	$status = $_GET["status"];
+	$status = $_GET["estado"];
 
 	$data = array(
 		':estado'			=>	$status,
@@ -146,8 +146,8 @@ include '../cabecalho.php';
 	<h1>Gestão de Armário</h1>
 	<?php
 
-	if (isset($_GET["action"])) {
-		if ($_GET["action"] == 'add') {
+	if (isset($_GET["accao"])) {
+		if ($_GET["accao"] == 'adicionar') {
 	?>
 
 			<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border">
@@ -187,8 +187,8 @@ include '../cabecalho.php';
 			</div>
 
 			<?php
-		} else if ($_GET["action"] == 'edit') {
-			$id = converter_dados($_GET["code"], 'decrypt');
+		} else if ($_GET["accao"] == 'editar') {
+			$id = converter_dados($_GET["codigo"], 'decrypt');
 
 			if ($id > 0) {
 				$query = "
@@ -243,11 +243,11 @@ include '../cabecalho.php';
 		<?php
 
 		if (isset($_GET["msg"])) {
-			if ($_GET["msg"] == 'add') {
+			if ($_GET["msg"] == 'adicionar') {
 				echo '<div class="alert alert-success alert-dismissible fade show" role="alert">Novo Armário adicionado<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
 			}
 
-			if ($_GET["msg"] == 'edit') {
+			if ($_GET["msg"] == 'editar') {
 				echo '<div class="alert alert-success alert-dismissible fade show" role="alert">Detalhes de Armário actualizado <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
 			}
 
@@ -311,8 +311,8 @@ include '../cabecalho.php';
 							<td>' . $row["criado_em"] . '</td>
 							<td>' . $row["actualizado_em"] . '</td>
 							<td>
-								<a href="armario.php?action=edit&code=' . converter_dados($row["id"]) . '" class="btn btn-sm btn-primary">Alterar</a>
-								<button type="button" name="delete_button" class="btn btn-' . $estadoCor . ' btn-sm" onclick="delete_data(`' . $row["id"] . '`, `' . $row["estado"] . '`)">' . $estadoString . '</button>
+								<a href="armario.php?action=edit&codigo=' . converter_dados($row["id"]) . '" class="btn btn-sm btn-primary">Alterar</a>
+								<button type="button" name="delete_button" class="btn btn-' . $estadoCor . ' btn-sm" onclick="apagar_dados(`' . $row["id"] . '`, `' . $row["estado"] . '`)">' . $estadoString . '</button>
 							</td>
 						</tr>
 						';
@@ -330,7 +330,7 @@ include '../cabecalho.php';
 			</div>
 		</div>
 		<script>
-			function delete_data(code, estado) {
+			function apagar_dados(code, estado) {
 				var novo_estado = 'activado';
 
 				if (estado == 'activado') {
@@ -339,7 +339,7 @@ include '../cabecalho.php';
 				var novo_estado_str = novo_estado === 'activado' ? 'activar' : 'desativar';
 
 				if (confirm("Tem certeza que deseja " + novo_estado_str + " este Armário?")) {
-					window.location.href = "armario.php?action=delete&code=" + code + "&status=" + novo_estado + ""
+					window.location.href = "armario.php?action=apagar&codigo=" + code + "&estado=" + novo_estado + ""
 				}
 			}
 		</script>
