@@ -203,7 +203,7 @@ include '../cabecalho.php';
 					<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border">
 						<li class="breadcrumb-item"><a href="index.php">Painel de Controle</a></li>
 						<li class="breadcrumb-item"><a href="autor.php">Gestão de Autores</a></li>
-						<li class="breadcrumb-item active">Edit Author</li>
+						<li class="breadcrumb-item active">Alterar dados de Autor</li>
 					</ol>
 
 					<div class="row">
