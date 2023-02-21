@@ -52,7 +52,7 @@ if (isset($_POST["login_btn"])) {
 				}
 			}
 		} else {
-			$message = '<li>Endereço de email incorrecto</li>';
+			$message = '<li>Endereço de email incorrecto!</li>';
 		}
 	}
 }
