@@ -258,11 +258,11 @@ include '../cabecalho.php';
 				echo '<div class="alert alert-success alert-dismissible fade show" role="alert">Dados de Categoria Actualizados<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
 			}
 			if ($_GET["msg"] == 'disable') {
-				echo '<div class="alert alert-success alert-dismissible fade show" role="alert">Category Estado alterado para desativado <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+				echo '<div class="alert alert-success alert-dismissible fade show" role="alert">Category Estado alterado para Desativado <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
 			}
 
 			if ($_GET['msg'] == 'enable') {
-				echo '<div class="alert alert-success alert-dismissible fade show" role="alert">Estado alterado para activado <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+				echo '<div class="alert alert-success alert-dismissible fade show" role="alert">Estado alterado para Activado <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
 			}
 		}
 
