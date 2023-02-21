@@ -4,7 +4,8 @@
 
 function base_url()
 {
-	return 'http://localhost:8888/biblioteca_iseuna/';
+	// return 'http://localhost:8888/biblioteca_iseuna/';
+	return 'http://biblioteca-iseuna.herokuapp.com/';
 }
 
 function is_admin_entrada()
