@@ -16,7 +16,7 @@ if (isset($_GET["action"], $_GET['status'], $_GET['code']) && $_GET["action"] ==
 
 	$data = array(
 		':estado'		=>	$status,
-		':actualizado_em'	=>	get_date_time($connect),
+		':actualizado_em'	=>	get_data_temp($connect),
 		':id_usuario'			=>	$id_usuario
 	);
 

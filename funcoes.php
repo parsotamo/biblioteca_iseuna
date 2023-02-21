@@ -24,7 +24,7 @@ function is_usuario_entrada()
 	return false;
 }
 
-function set_timezone($connect)
+function set_fusohorario($connect)
 {
 	$query = "
 	SELECT fuso_horario FROM definicao 
@@ -38,14 +38,14 @@ function set_timezone($connect)
 	}
 }
 
-function get_date_time($connect)
+function get_data_temp($connect)
 {
-	set_timezone($connect);
+	set_fusohorario($connect);
 
 	return date("Y-m-d H:i:s",  STRTOTIME(date('h:i:sa')));
 }
 
-function get_one_day_fines($connect)
+function get_multa_um_dia($connect)
 {
 	$output = 0;
 	$query = "
@@ -59,7 +59,7 @@ function get_one_day_fines($connect)
 	return $output;
 }
 
-function get_currency_symbol($connect)
+function get_moeda($connect)
 {
 	$output = '';
 	$query = "
@@ -68,7 +68,7 @@ function get_currency_symbol($connect)
 	";
 	$result = $connect->query($query);
 	foreach ($result as $row) {
-		$currency_data = currency_array();
+		$currency_data = array_moeda();
 		foreach ($currency_data as $currency) {
 			if ($currency["code"] == $row['moeda']) {
 				$output = '<span style="font-family: DejaVu Sans;">' . $currency["symbol"] . '</span>&nbsp;';
@@ -78,7 +78,7 @@ function get_currency_symbol($connect)
 	return $output;
 }
 
-function get_book_issue_limit_per_user($connect)
+function get_limite_requisicao_por_usuario($connect)
 {
 	$output = '';
 	$query = "
@@ -92,7 +92,7 @@ function get_book_issue_limit_per_user($connect)
 	return $output;
 }
 
-function get_total_book_issue_per_user($connect, $user_unique_id)
+function get_total_livro_requisitado_por_usuario($connect, $user_unique_id)
 {
 	$output = 0;
 
@@ -110,7 +110,7 @@ function get_total_book_issue_per_user($connect, $user_unique_id)
 	return $output;
 }
 
-function get_total_book_issue_day($connect)
+function get_numero_dias_emprestimo($connect)
 {
 	$output = 0;
 
@@ -127,7 +127,7 @@ function get_total_book_issue_day($connect)
 	return $output;
 }
 
-function convert_data($string, $action = 'encrypt')
+function converter_dados($string, $action = 'encrypt')
 {
 	$encrypt_method = "AES-256-CBC";
 	$secret_key = 'AA74CDCC2BBRT935136HH7B63C27'; // user define private key
@@ -143,7 +143,7 @@ function convert_data($string, $action = 'encrypt')
 	return $output;
 }
 
-function currency_array()
+function array_moeda()
 {
 	$currencies = array(
 		array(
@@ -962,7 +962,7 @@ function Currency_list()
 	$html = '
 			<option value="">Select Currency</option>
 		';
-	$data = currency_array();
+	$data = array_moeda();
 	foreach ($data as $row) {
 		$html .= '<option value="' . $row["code"] . '">' . $row["name"] . '</option>';
 	}
@@ -1382,7 +1382,7 @@ function Timezone_list()
 	return $html;
 }
 
-function fill_author($connect)
+function preencher_autor($connect)
 {
 	$query = "
 	SELECT nome FROM autor 
@@ -1401,7 +1401,7 @@ function fill_author($connect)
 	return $output;
 }
 
-function fill_category($connect)
+function preencher_categoria($connect)
 {
 	$query = "
 	SELECT nome FROM categoria 
@@ -1420,7 +1420,7 @@ function fill_category($connect)
 	return $output;
 }
 
-function fill_armario($connect)
+function preencher_armario($connect)
 {
 	$query = "
 	SELECT nome FROM armario 

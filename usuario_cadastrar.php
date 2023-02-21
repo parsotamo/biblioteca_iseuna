@@ -113,7 +113,7 @@ if (isset($_POST["register_button"])) {
 				':codigo_verificacao' =>	$codigo_verificacao,
 				':estado_verificacao'	=>	'nao',
 				':estado'			=>	'activado',
-				':criado_em'		=>	get_date_time($connect)
+				':criado_em'		=>	get_data_temp($connect)
 			);
 
 			$query = "

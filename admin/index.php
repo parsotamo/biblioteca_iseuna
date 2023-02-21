@@ -45,7 +45,7 @@ include '../cabecalho.php';
 		<div class="col-xl-3 col-md-6">
 			<div class="card bg-success text-white mb-4">
 				<div class="card-body">
-					<h1 class="text-center"><?php echo contar_total_multas($connect) . get_currency_symbol($connect); ?></h1>
+					<h1 class="text-center"><?php echo contar_total_multas($connect) . get_moeda($connect); ?></h1>
 					<h5 class="text-center">Total de Multas</h5>
 				</div>
 			</div>

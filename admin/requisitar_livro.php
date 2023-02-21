@@ -59,14 +59,14 @@ if (isset($_POST["issue_book_button"])) {
                             if ($user_row['estado'] == 'activado') {
                                 //Check User Total issue of Book
 
-                                $book_issue_limit = get_book_issue_limit_per_user($connect);
+                                $book_issue_limit = get_limite_requisicao_por_usuario($connect);
 
-                                $total_book_issue = get_total_book_issue_per_user($connect, $formdata['id_usuario']);
+                                $total_book_issue = get_total_livro_requisitado_por_usuario($connect, $formdata['id_usuario']);
 
                                 if ($total_book_issue < $book_issue_limit) {
-                                    $numero_dias_emprestimo = get_total_book_issue_day($connect);
+                                    $numero_dias_emprestimo = get_numero_dias_emprestimo($connect);
 
-                                    $today_date = get_date_time($connect);
+                                    $today_date = get_data_temp($connect);
 
                                     $data_retorno_esperada = date('Y-m-d H:i:s', strtotime($today_date . ' + ' . $numero_dias_emprestimo . ' days'));
 
@@ -123,7 +123,7 @@ if (isset($_POST["issue_book_button"])) {
 if (isset($_POST["book_return_button"])) {
     if (isset($_POST["book_return_confirmation"])) {
         $data = array(
-            ':data_retorno'     =>  get_date_time($connect),
+            ':data_retorno'     =>  get_data_temp($connect),
             ':estado_livro'    =>  'devolvido',
             ':id_livro'        =>  $_POST['id_livro']
         );
@@ -292,7 +292,7 @@ include '../cabecalho.php';
             </div>
         <?php
         } else if ($_GET["action"] == 'view') {
-            $id_livro = convert_data($_GET["code"], 'decrypt');
+            $id_livro = converter_dados($_GET["code"], 'decrypt');
 
             if ($id_livro > 0) {
                 $query = "
@@ -431,7 +431,7 @@ include '../cabecalho.php';
                         </tr>
                         <tr>
                             <th width="30%">Total Multa</th>
-                            <td width="70%">' . get_currency_symbol($connect) . ' ' . $row["multas"] . '</td>
+                            <td width="70%">' . get_moeda($connect) . ' ' . $row["multas"] . '</td>
                         </tr>
                     </table>
                     <form method="POST">
@@ -503,11 +503,11 @@ include '../cabecalho.php';
                     <tbody>
                         <?php
                         if ($statement->rowCount() > 0) {
-                            $one_day_fine = get_one_day_fines($connect);
+                            $one_day_fine = get_multa_um_dia($connect);
 
-                            $currency_symbol = get_currency_symbol($connect);
+                            $currency_symbol = get_moeda($connect);
 
-                            set_timezone($connect);
+                            set_fusohorario($connect);
 
                             foreach ($statement->fetchAll() as $row) {
                                 $estado_livro = $row["estado_livro"];
@@ -515,7 +515,7 @@ include '../cabecalho.php';
                                 $multas = $row["multas"];
 
                                 if ($row["estado_livro"] == "Issue") {
-                                    $current_date_time = new DateTime(get_date_time($connect));
+                                    $current_date_time = new DateTime(get_data_temp($connect));
                                     $data_retorno_esperada = new DateTime($row["data_retorno_esperada"]);
 
                                     if ($current_date_time > $data_retorno_esperada) {
@@ -559,7 +559,7 @@ include '../cabecalho.php';
         					<td>' . $multas . ' ' . $currency_symbol . '</td>
         					<td>' . $estado_livro . '</td>
         					<td>
-                                <a href="requisitar_livro.php?action=view&code=' . convert_data($row["id_livro"]) . '" class="btn btn-info btn-sm">Visualizar</a>
+                                <a href="requisitar_livro.php?action=view&code=' . converter_dados($row["id_livro"]) . '" class="btn btn-info btn-sm">Visualizar</a>
                             </td>
         				</tr>
         				';

@@ -82,7 +82,7 @@ include 'cabecalho.php';
 							<td>' . $row["nome"] . '</td>
 							<td>' . $row["data_requisicao"] . '</td>
 							<td>' . $row["data_retorno"] . '</td>
-							<td>' . get_currency_symbol($connect) . $row["multas"] . '</td>
+							<td>' . get_moeda($connect) . $row["multas"] . '</td>
 							<td>' . $status . '</td>
 						</tr>
 						';

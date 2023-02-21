@@ -39,7 +39,7 @@ if (isset($_POST["add_author"])) {
 			$data = array(
 				':nome'			=>	$formdata['nome'],
 				':estado'		=>	'activado',
-				':criado_em'	=>	get_date_time($connect)
+				':criado_em'	=>	get_data_temp($connect)
 			);
 
 			$query = "
@@ -67,7 +67,7 @@ if (isset($_POST["edit_author"])) {
 	}
 
 	if ($error == '') {
-		$id = convert_data($_POST['id'], 'decrypt');
+		$id = converter_dados($_POST['id'], 'decrypt');
 
 		$query = "
 		SELECT * FROM autor 
@@ -84,7 +84,7 @@ if (isset($_POST["edit_author"])) {
 		} else {
 			$data = array(
 				':nome'		=>	$formdata['nome'],
-				':actualizado_em' =>	get_date_time($connect),
+				':actualizado_em' =>	get_data_temp($connect),
 				':id'		=>	$id
 			);
 
@@ -111,7 +111,7 @@ if (isset($_GET["action"], $_GET["code"], $_GET["status"]) && $_GET["action"] ==
 
 	$data = array(
 		':estado'			=>	$status,
-		':actualizado_em'		=>	get_date_time($connect),
+		':actualizado_em'		=>	get_data_temp($connect),
 		':id'				=>	$id
 	);
 
@@ -187,7 +187,7 @@ include '../cabecalho.php';
 
 			<?php
 		} else if ($_GET["action"] == 'edit') {
-			$id = convert_data($_GET["code"], 'decrypt');
+			$id = converter_dados($_GET["code"], 'decrypt');
 
 			if ($id > 0) {
 				$query = "
@@ -308,7 +308,7 @@ include '../cabecalho.php';
 							<td>' . $row["criado_em"] . '</td>
 							<td>' . $row["actualizado_em"] . '</td>
 							<td>
-								<a href="autor.php?action=edit&code=' . convert_data($row["id"]) . '" class="btn btn-sm btn-primary">Edit</a>
+								<a href="autor.php?action=edit&code=' . converter_dados($row["id"]) . '" class="btn btn-sm btn-primary">Edit</a>
 								<button type="button" name="delete_button" class="btn btn-' . $estadoCor . ' btn-sm" onclick="delete_data(`' . $row["id"] . '`, `' . $row["estado"] . '`)">' . $estadoString . '</button>
 							</td>
 						</tr>

@@ -62,7 +62,7 @@ if (isset($_POST["add_book"])) {
 			':numero_isbn'		=>	$formdata['numero_isbn'],
 			':nr_copia'		=>	$formdata['nr_copia'],
 			':estado'			=>	'activado',
-			':adicionado_em'		=>	get_date_time($connect)
+			':adicionado_em'		=>	get_data_temp($connect)
 		);
 		$query = "
 		INSERT INTO livro 
@@ -124,7 +124,7 @@ if (isset($_POST["edit_book"])) {
 			':nome'			=>	$formdata['nome'],
 			':numero_isbn'		=>	$formdata['numero_isbn'],
 			':nr_copia'		=>	$formdata['nr_copia'],
-			':actualizado_em'		=>	get_date_time($connect),
+			':actualizado_em'		=>	get_data_temp($connect),
 			':id'				=>	$_POST["id"]
 		);
 		$query = "
@@ -153,7 +153,7 @@ if (isset($_GET["action"], $_GET["code"], $_GET["status"]) && $_GET["action"] ==
 
 	$data = array(
 		':estado'		=>	$status,
-		':actualizado_em'	=>	get_date_time($connect),
+		':actualizado_em'	=>	get_data_temp($connect),
 		':id'			=>	$id
 	);
 
@@ -224,7 +224,7 @@ include '../cabecalho.php';
 								<div class="mb-3">
 									<label class="form-label">Selecione o Autor</label>
 									<select name="autor" id="autor" class="form-control">
-										<?php echo fill_author($connect); ?>
+										<?php echo preencher_autor($connect); ?>
 									</select>
 								</div>
 							</div>
@@ -234,7 +234,7 @@ include '../cabecalho.php';
 								<div class="mb-3">
 									<label class="form-label">Selecione a Categoria</label>
 									<select name="categoria" id="categoria" class="form-control">
-										<?php echo fill_category($connect); ?>
+										<?php echo preencher_categoria($connect); ?>
 									</select>
 								</div>
 							</div>
@@ -242,7 +242,7 @@ include '../cabecalho.php';
 								<div class="mb-3">
 									<label class="form-label">Selecione o Armário</label>
 									<select name="armario" id="armario" class="form-control">
-										<?php echo fill_armario($connect); ?>
+										<?php echo preencher_armario($connect); ?>
 									</select>
 								</div>
 							</div>
@@ -270,7 +270,7 @@ include '../cabecalho.php';
 
 			<?php
 		} else if ($_GET["action"] == 'edit') {
-			$id = convert_data($_GET["code"], 'decrypt');
+			$id = converter_dados($_GET["code"], 'decrypt');
 
 			if ($id > 0) {
 				$query = "
@@ -304,7 +304,7 @@ include '../cabecalho.php';
 										<div class="mb-3">
 											<label class="form-label">Selecione o Autor</label>
 											<select name="autor" id="autor" class="form-control">
-												<?php echo fill_author($connect); ?>
+												<?php echo preencher_autor($connect); ?>
 											</select>
 										</div>
 									</div>
@@ -314,7 +314,7 @@ include '../cabecalho.php';
 										<div class="mb-3">
 											<label class="form-label">Selecione a Categoria</label>
 											<select name="categoria" id="categoria" class="form-control">
-												<?php echo fill_category($connect); ?>
+												<?php echo preencher_categoria($connect); ?>
 											</select>
 										</div>
 									</div>
@@ -322,7 +322,7 @@ include '../cabecalho.php';
 										<div class="mb-3">
 											<label class="form-label">Selecione o Armário</label>
 											<select name="armario" id="armario" class="form-control">
-												<?php echo fill_armario($connect); ?>
+												<?php echo preencher_armario($connect); ?>
 											</select>
 										</div>
 									</div>
@@ -447,7 +447,7 @@ include '../cabecalho.php';
         					<td>' . $row["adicionado_em"] . '</td>
         					<td>' . $row["actualizado_em"] . '</td>
         					<td>
-        						<a href="livro.php?action=edit&code=' . convert_data($row["id"]) . '" class="btn btn-sm btn-primary">Actualizar</a>
+        						<a href="livro.php?action=edit&code=' . converter_dados($row["id"]) . '" class="btn btn-sm btn-primary">Actualizar</a>
         						<button type="button" name="delete_button" class="btn btn-' . $estadoCor . ' btn-sm" onclick="delete_data(`' . $row["id"] . '`, `' . $row["estado"] . '`)">' . $estadoString . '</button>
         					</td>
         				</tr>

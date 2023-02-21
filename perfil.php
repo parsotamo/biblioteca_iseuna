@@ -77,7 +77,7 @@ if (isset($_POST['save_button'])) {
 			':contacto'		=>	$formdata['contacto'],
 			':email'	=>	$formdata['email'],
 			':senha'		=>	$formdata['senha'],
-			':actualizado_em'		=>	get_date_time($connect),
+			':actualizado_em'		=>	get_data_temp($connect),
 			':id_usuario'		=>	$_SESSION['id_usuario']
 		);
 
