@@ -149,7 +149,7 @@ if (isset($_POST["book_return_button"])) {
 
         header("location:requisitar_livro.php?msg=return");
     } else {
-        $error = 'Por favor primeiro confirme a recepção do livro clicando na caixinha.';
+        $error = 'Por favor primeiro confirme a recepção do Livro clicando na caixinha.';
     }
 }
 
