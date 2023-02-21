@@ -22,7 +22,7 @@ if (isset($_POST["issue_book_button"])) {
     }
 
     if (empty($_POST["id_usuario"])) {
-        $error .= '<li>ID do usuário é obrigatório</li>';
+        $error .= '<li>ID do usuário é obrigatório!</li>';
     } else {
         $formdata['id_usuario'] = trim($_POST['id_usuario']);
     }
