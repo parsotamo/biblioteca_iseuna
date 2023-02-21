@@ -5,7 +5,7 @@
 // use PHPMailer\PHPMailer\SMTP;
 // use PHPMailer\PHPMailer\Exception;
 
-use src\Imagick;
+use SRC\Imagick;
 
 require 'vendor/autoload.php';
 include 'base_dados_con.php';

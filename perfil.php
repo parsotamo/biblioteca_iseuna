@@ -3,7 +3,7 @@
 //perfil.php
 // use Imagick;
 
-use src\Imagick;
+use SRC\Imagick;
 
 require 'vendor/autoload.php';
 include 'base_dados_con.php';

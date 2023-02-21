@@ -1,6 +1,6 @@
 <?php
 
-namespace src\Imagick;
+namespace SRC;
 
 use Imagick\Argument;
 use Imagick\Geometry;
