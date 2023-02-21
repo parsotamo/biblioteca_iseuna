@@ -5,7 +5,8 @@
 // use PHPMailer\PHPMailer\SMTP;
 // use PHPMailer\PHPMailer\Exception;
 
-require 'vendor/calcinai/phpimagick/src/Imagick.php';
+use src\Imagick;
+
 require 'vendor/autoload.php';
 include 'base_dados_con.php';
 

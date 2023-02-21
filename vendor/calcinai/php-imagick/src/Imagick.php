@@ -1,5 +1,7 @@
 <?php
 
+namespace src\Imagick;
+
 use Imagick\Argument;
 use Imagick\Geometry;
 
@@ -8,7 +10,10 @@ use Imagick\Geometry;
  * @author     Michael Calcinai <michael@calcin.ai>
  */
 
-class Imagick implements Iterator
+
+
+
+class Imagick implements \Iterator
 {
 
     const COLOR_BLACK = 11;
