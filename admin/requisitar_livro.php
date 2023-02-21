@@ -391,7 +391,7 @@ include '../cabecalho.php';
                         $estado = '<span class="badge bg-warning">Requisitado</span>';
 
                         $form_item = '
-                        <label><input type="checkbox" name="book_return_confirmation" value="Yes" /> Eu confirmo que recebi o livro requisitado</label>
+                        <label><input type="checkbox" name="book_return_confirmation" value="Yes" /> Eu confirmo que recebi o Livro requisitado</label>
                         <br />
                         <div class="mt-4 mb-4">
                             <input type="submit" name="book_return_button" value="Devolver Livro" class="btn btn-primary" />
