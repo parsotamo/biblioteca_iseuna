@@ -1,11 +1,13 @@
 <?php
 
 //usuario_cadastrar.php
-
 // use PHPMailer\PHPMailer\PHPMailer;
 // use PHPMailer\PHPMailer\SMTP;
 // use PHPMailer\PHPMailer\Exception;
 
+use Imagick;
+
+require 'vendor/autoload.php';
 include 'base_dados_con.php';
 
 include 'funcoes.php';
@@ -126,7 +128,7 @@ if (isset($_POST["register_button"])) {
 
 			$statement->execute($data);
 
-			// require 'vendor/autoload.php';
+			// 
 
 			// $mail = new PHPMailer(true);
 
@@ -212,7 +214,7 @@ include 'cabecalho.php';
 						<label class="form-label">Foto</label><br />
 						<input type="file" name="foto" id="foto" />
 						<br />
-						<span class="text-muted">Somente imagem no formato .jpg ou .png é permitido. O tamanho será redimensionado para 150 x 150.</span>
+						<span class="text-muted">Somente imagem no formato .jpg ou .png é permitido. O tamanho será redimensionado para 150 x 150</span>
 					</div>
 					<div class="text-center mt-4 mb-2">
 						<input type="submit" name="register_button" class="btn btn-primary" value="Cadastrar" />

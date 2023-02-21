@@ -1,4 +1,5 @@
 <?php
+
 use Imagick\Argument;
 use Imagick\Geometry;
 
@@ -6,6 +7,7 @@ use Imagick\Geometry;
  * @package    calcinai/php-imagick
  * @author     Michael Calcinai <michael@calcin.ai>
  */
+
 class Imagick implements Iterator
 {
 
@@ -437,10 +439,10 @@ class Imagick implements Iterator
     {
         //This could be better
         foreach ([
-                     '/usr/local/bin/convert',
-                     '/usr/bin/convert',
-                     '/bin/convert'
-                 ] as $path) {
+            '/usr/local/bin/convert',
+            '/usr/bin/convert',
+            '/bin/convert'
+        ] as $path) {
             if (file_exists($path)) {
                 return $path;
             }
@@ -3439,7 +3441,6 @@ class Imagick implements Iterator
         }
 
         $this->addConvertArgument(new Argument('thumbnail', $geometry));
-
     }
 
     /**
@@ -3661,5 +3662,4 @@ class Imagick implements Iterator
     {
         return sprintf('%s %s %s %s', self::$convert_path, implode(' ', $convert_args), $input_file, $output_file);
     }
-
 }
