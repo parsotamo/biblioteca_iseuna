@@ -93,7 +93,7 @@ include 'cabecalho.php';
 					} else {
 						echo '
 					<tr>
-						<td colspan="8" class="text-center">Nenhum livro encontrado</td>
+						<td colspan="8" class="text-center">Nenhum livro encontrado!</td>
 					</tr>
 					';
 					}
