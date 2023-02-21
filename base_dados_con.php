@@ -9,7 +9,7 @@ $db_nome = "heroku_152f715103496d7";
 try {
     $connect = new PDO("mysql:host=$db_host;dbname=$db_nome", $db_usuario, $db_senha);
 } catch (PDOException $pe) {
-    die("Erro de conexão de Base de Dados");
+    die("Erro de conexão de Base de Dados!");
 }
 
 session_start();
