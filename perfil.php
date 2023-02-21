@@ -1,10 +1,14 @@
 <?php
 
 //perfil.php
+use Imagick;
+
+require 'vendor/autoload.php';
 
 include 'base_dados_con.php';
 
 include 'funcoes.php';
+
 
 if (!is_usuario_entrada()) {
 	header('location:usuario_entrada.php');
