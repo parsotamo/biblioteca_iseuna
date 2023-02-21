@@ -4,7 +4,7 @@
 // use Imagick;
 
 require 'vendor/calcinai/phpimagick/src/Imagick.php';
-
+require 'vendor/autoload.php';
 include 'base_dados_con.php';
 
 include 'funcoes.php';
