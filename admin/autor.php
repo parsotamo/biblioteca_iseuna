@@ -265,7 +265,7 @@ include '../cabecalho.php';
 						<i class="fas fa-table me-1"></i> Gestão de Autores
 					</div>
 					<div class="col col-md-6" align="right">
-						<a href="autor.php?action=add" class="btn btn-success btn-sm">Adicionar</a>
+						<a href="autor.php?accao=add" class="btn btn-success btn-sm">Adicionar</a>
 					</div>
 				</div>
 			</div>
@@ -308,7 +308,7 @@ include '../cabecalho.php';
 							<td>' . $row["criado_em"] . '</td>
 							<td>' . $row["actualizado_em"] . '</td>
 							<td>
-								<a href="autor.php?action=edit&codigo=' . converter_dados($row["id"]) . '" class="btn btn-sm btn-primary">Edit</a>
+								<a href="autor.php?accao=edit&codigo=' . converter_dados($row["id"]) . '" class="btn btn-sm btn-primary">Edit</a>
 								<button type="button" name="delete_button" class="btn btn-' . $estadoCor . ' btn-sm" onclick="apagar_dados(`' . $row["id"] . '`, `' . $row["estado"] . '`)">' . $estadoString . '</button>
 							</td>
 						</tr>
@@ -337,7 +337,7 @@ include '../cabecalho.php';
 				var novo_estado_str = novo_estado === 'activado' ? 'activar' : 'desativar';
 
 				if (confirm("Tem certeza que deseja " + novo_estado_str + " este autor?")) {
-					window.location.href = "autor.php?action=apagar&codigo=" + code + "&estado=" + novo_estado + "";
+					window.location.href = "autor.php?accao=apagar&codigo=" + code + "&estado=" + novo_estado + "";
 				}
 			}
 		</script>

@@ -472,7 +472,7 @@ include '../cabecalho.php';
                         <i class="fas fa-table me-1"></i> Gestão de Pedidos de Livros
                     </div>
                     <div class="col col-md-6" align="right">
-                        <a href="requisitar_livro.php?action=add" class="btn btn-success btn-sm">Requisitar</a>
+                        <a href="requisitar_livro.php?accao=add" class="btn btn-success btn-sm">Requisitar</a>
                     </div>
                 </div>
             </div>
@@ -559,7 +559,7 @@ include '../cabecalho.php';
         					<td>' . $multas . ' ' . $currency_symbol . '</td>
         					<td>' . $estado_livro . '</td>
         					<td>
-                                <a href="requisitar_livro.php?action=view&codigo=' . converter_dados($row["id_livro"]) . '" class="btn btn-info btn-sm">Visualizar</a>
+                                <a href="requisitar_livro.php?accao=view&codigo=' . converter_dados($row["id_livro"]) . '" class="btn btn-info btn-sm">Visualizar</a>
                             </td>
         				</tr>
         				';

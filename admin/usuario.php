@@ -161,7 +161,7 @@ include '../cabecalho.php';
 		}
 		var novo_estado_str = novo_estado === 'activado' ? 'activar' : 'desativar';
 		if (confirm("Tem certeza que deseja " + novo_estado_str + " este Usuário?")) {
-			window.location.href = "usuario.php?action=apagar&codigo=" + code + "&estado=" + novo_estado + "";
+			window.location.href = "usuario.php?accao=apagar&codigo=" + code + "&estado=" + novo_estado + "";
 		}
 	}
 </script>

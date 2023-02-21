@@ -275,7 +275,7 @@ include '../cabecalho.php';
 						<i class="fas fa-table me-1"></i> Gestão de Categoria
 					</div>
 					<div class="col col-md-6" align="right">
-						<a href="categoria.php?action=add" class="btn btn-success btn-sm">Adicionar</a>
+						<a href="categoria.php?accao=add" class="btn btn-success btn-sm">Adicionar</a>
 					</div>
 				</div>
 			</div>
@@ -320,7 +320,7 @@ include '../cabecalho.php';
 							<td>' . $row["criado_em"] . '</td>
 							<td>' . $row["actualizado_em"] . '</td>
 							<td>
-								<a href="categoria.php?action=edit&codigo=' . converter_dados($row["id"]) . '" class="btn btn-sm btn-primary">Alterar</a>
+								<a href="categoria.php?accao=edit&codigo=' . converter_dados($row["id"]) . '" class="btn btn-sm btn-primary">Alterar</a>
 								<button name="delete_button" class="btn-' . $cor_estado . ' btn-sm" onclick="apagar_dados(`' . $row["id"] . '`, `' . $row["estado"] . '`)"> ' . $string_estado . ' </button>
 							</td>
 						</tr>
@@ -347,7 +347,7 @@ include '../cabecalho.php';
 						}
 
 						if (confirm("Tem certeza que deseja " + novo_Estado + " esta Categoria")) {
-							window.location.href = "categoria.php?action=apagar&codigo=" + code + "&Estado=" + novo_Estado + "";
+							window.location.href = "categoria.php?accao=apagar&codigo=" + code + "&Estado=" + novo_Estado + "";
 						}
 					}
 				</script>
