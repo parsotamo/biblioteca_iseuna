@@ -317,7 +317,7 @@ include '../cabecalho.php';
 						} else {
 							echo '
 					<tr>
-						<td colspan="4" class="text-center">Nenhum Autor encontrado.</td>
+						<td colspan="4" class="text-center">Nenhum Autor encontrado!</td>
 					</tr>
 					';
 						}
