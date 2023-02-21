@@ -1,9 +1,9 @@
 <?php
 
 //perfil.php
-use Imagick;
+// use Imagick;
 
-require 'vendor/autoload.php';
+require 'vendor/calcinai/phpimagick/src/Imagick.php';
 
 include 'base_dados_con.php';
 
