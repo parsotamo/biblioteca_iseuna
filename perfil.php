@@ -81,7 +81,7 @@ if (isset($_POST['save_button'])) {
 		$new_height = 150;
 		move_uploaded_file($tmp_name, $path);
 		$new_img = imagecreatetruecolor($new_width, $new_height);
-		switch ($img_ext) {
+		switch ($img_type) {
 			case 'image/jpg':
 				$orig = imagecreatefromjpeg($path);
 				break;
@@ -104,7 +104,7 @@ if (isset($_POST['save_button'])) {
 			$width,
 			$height
 		);
-		switch ($img_ext) {
+		switch ($img_type) {
 			case 'image/jpg':
 				imagejpeg($new_img, $path);
 			case 'image/jpeg':
