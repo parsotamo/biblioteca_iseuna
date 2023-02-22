@@ -71,7 +71,7 @@ function get_moeda($connect)
 		$currency_data = array_moeda();
 		foreach ($currency_data as $currency) {
 			if ($currency["codigo"] == $row['moeda']) {
-				$output = '<span style="font-family: DejaVu Sans;">' . $currency["symbol"] . '</span>&nbsp;';
+				$output = '<span style="font-family: DejaVu Sans;">' . $currency["simbolo"] . '</span>&nbsp;';
 			}
 		}
 	}
