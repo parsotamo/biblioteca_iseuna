@@ -69,54 +69,57 @@ if (isset($_POST['save_button'])) {
 	}
 
 	if ($mensagem == '') {
-		$tmp_name = $_FILES['foto']['tmp_name'];
-		$img_type = $_FILES['foto']['type'];
-		$path = "upload/" . $formdata['foto'];
-		if (file_exists($path)) {
-			unlink($path);
+		if ($formdata['foto'] != null) {
+			$tmp_name = $_FILES['foto']['tmp_name'];
+			$img_type = $_FILES['foto']['type'];
+			$path = "upload/" . $formdata['foto'];
+			if (file_exists($path)) {
+				unlink($path);
+			}
+			list($width, $height) = getimagesize($tmp_name);
+			move_uploaded_file($tmp_name, $path);
+			$new_width = 150;
+			$new_height = 150;
+			move_uploaded_file($tmp_name, $path);
+			$new_img = imagecreatetruecolor($new_width, $new_height);
+			switch ($img_type) {
+				case 'image/jpg':
+					$orig = imagecreatefromjpeg($path);
+					break;
+				case 'image/jpeg':
+					$orig = imagecreatefromjpeg($path);
+					break;
+				case 'image/png':
+					$orig = imagecreatefrompng($path);
+					break;
+			}
+			imagecopyresampled(
+				$new_img,
+				$orig,
+				0,
+				0,
+				0,
+				0,
+				$new_width,
+				$new_height,
+				$width,
+				$height
+			);
+			switch ($img_type) {
+				case 'image/jpg':
+					imagejpeg($new_img, $path);
+				case 'image/jpeg':
+					imagejpeg($new_img, $path);
+					break;
+				case 'image/png':
+					imagepng($new_img, $path);
+					break;
+			}
+			// $img = new Imagick($path);
+			// $img->resizeImage(150, 150, Imagick::FILTER_LANCZOS, 1);
+			// $img->writeImage($path);
+
 		}
-		list($width, $height) = getimagesize($tmp_name);
-		move_uploaded_file($tmp_name, $path);
-		$new_width = 150;
-		$new_height = 150;
-		move_uploaded_file($tmp_name, $path);
-		$new_img = imagecreatetruecolor($new_width, $new_height);
-		switch ($img_type) {
-			case 'image/jpg':
-				$orig = imagecreatefromjpeg($path);
-				break;
-			case 'image/jpeg':
-				$orig = imagecreatefromjpeg($path);
-				break;
-			case 'image/png':
-				$orig = imagecreatefrompng($path);
-				break;
-		}
-		imagecopyresampled(
-			$new_img,
-			$orig,
-			0,
-			0,
-			0,
-			0,
-			$new_width,
-			$new_height,
-			$width,
-			$height
-		);
-		switch ($img_type) {
-			case 'image/jpg':
-				imagejpeg($new_img, $path);
-			case 'image/jpeg':
-				imagejpeg($new_img, $path);
-				break;
-			case 'image/png':
-				imagepng($new_img, $path);
-				break;
-		}
-		// $img = new Imagick($path);
-		// $img->resizeImage(150, 150, Imagick::FILTER_LANCZOS, 1);
-		// $img->writeImage($path);
 		$data = array(
 			':nome'			=>	$formdata['nome'],
 			':endereco'			=>	$formdata['endereco'],
