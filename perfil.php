@@ -72,7 +72,7 @@ if (isset($_POST['save_button'])) {
 		$tmp_name = $_FILES['foto']['tmp_name'];
 		$img_type = $_FILES['foto']['type'];
 		$path = "upload/" . $formdata['foto'];
-		if (unlink($path) != null) {
+		if (file_exists($path)) {
 			unlink($path);
 		}
 		list($width, $height) = getimagesize($tmp_name);
