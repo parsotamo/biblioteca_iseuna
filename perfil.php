@@ -69,7 +69,7 @@ if (isset($_POST['save_button'])) {
 	}
 
 	if ($mensagem == '') {
-		if ($formdata['foto'] != null) {
+		if ($_FILES['foto']['tmp_name'] != null) {
 			$tmp_name = $_FILES['foto']['tmp_name'];
 			$img_type = $_FILES['foto']['type'];
 			$path = "upload/" . $formdata['foto'];
