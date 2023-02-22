@@ -7,7 +7,7 @@
 
 // use SRC\Imagick;
 
-require 'vendor/autoload.php';
+// require 'vendor/autoload.php';
 include 'base_dados_con.php';
 
 include 'funcoes.php';
@@ -105,13 +105,13 @@ if (isset($_POST["register_button"])) {
 			$new_img = imagecreatetruecolor($new_width, $new_height);
 			switch ($img_type) {
 				case 'image/jpg':
-					$orig = imagecreatefromjpeg($orig_path);
+					$orig = imagecreatefromjpeg($path);
 					break;
 				case 'image/jpeg':
-					$orig = imagecreatefromjpeg($orig_path);
+					$orig = imagecreatefromjpeg($path);
 					break;
 				case 'image/png':
-					$orig = imagecreatefrompng($orig_path);
+					$orig = imagecreatefrompng($path);
 					break;
 			}
 			imagecopyresampled(

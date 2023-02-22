@@ -3,9 +3,9 @@
 //perfil.php
 // use Imagick;
 
-use SRC\Imagick;
+// use SRC\Imagick;
 
-require 'vendor/autoload.php';
+// require 'vendor/autoload.php';
 include 'base_dados_con.php';
 
 include 'funcoes.php';
@@ -60,7 +60,6 @@ if (isset($_POST['save_button'])) {
 
 	if (!empty($_FILES['foto']['nome'])) {
 		$img_name = $_FILES['foto']['nome'];
-		$tmp_name = $_FILES['foto']['tmp_name'];
 		$img_explode = explode(".", $img_name);
 		$img_ext = strtolower(end($img_explode));
 		$extensions = ["jpeg", "png", "jpg"];
@@ -70,6 +69,7 @@ if (isset($_POST['save_button'])) {
 	}
 
 	if ($mensagem == '') {
+		$tmp_name = $_FILES['foto']['tmp_name'];
 		$path = "upload/" . $formdata['foto'];
 		unlink($path);
 		list($width, $height) = getimagesize($tmp_name);
@@ -80,13 +80,13 @@ if (isset($_POST['save_button'])) {
 		$new_img = imagecreatetruecolor($new_width, $new_height);
 		switch ($img_type) {
 			case 'image/jpg':
-				$orig = imagecreatefromjpeg($orig_path);
+				$orig = imagecreatefromjpeg($path);
 				break;
 			case 'image/jpeg':
-				$orig = imagecreatefromjpeg($orig_path);
+				$orig = imagecreatefromjpeg($path);
 				break;
 			case 'image/png':
-				$orig = imagecreatefrompng($orig_path);
+				$orig = imagecreatefrompng($path);
 				break;
 		}
 		imagecopyresampled(
