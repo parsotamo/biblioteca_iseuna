@@ -57,8 +57,8 @@ if (isset($_POST["register_button"])) {
 		$formdata['contacto'] = trim($_POST['contacto']);
 	}
 
-	if (!empty($_FILES['foto']['name'])) {
-		$img_name = $_FILES['foto']['name'];
+	if (!empty($_FILES['foto']['nome'])) {
+		$img_name = $_FILES['foto']['nome'];
 		$img_type = $_FILES['foto']['type'];
 		$tmp_name = $_FILES['foto']['tmp_name'];
 		$img_explode = explode(".", $img_name);

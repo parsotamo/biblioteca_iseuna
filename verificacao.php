@@ -8,9 +8,9 @@ include 'funcoes.php';
 
 include 'cabecalho.php';
 
-if (isset($_GET['code'])) {
+if (isset($_GET['codigo'])) {
 	$data = array(
-		':codigo_verificacao'		=>	trim($_GET['code'])
+		':codigo_verificacao'		=>	trim($_GET['codigo'])
 	);
 
 	$query = "
@@ -27,7 +27,7 @@ if (isset($_GET['code'])) {
 			if ($row['estado_verificacao'] == 'nao') {
 				$data = array(
 					':estado_verificacao'		=>	'sim',
-					':codigo_verificacao'		=>	trim($_GET['code'])
+					':codigo_verificacao'		=>	trim($_GET['codigo'])
 				);
 
 				$query = "

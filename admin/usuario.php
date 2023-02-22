@@ -10,7 +10,7 @@ if (!is_admin_entrada()) {
 	header('location:../admin_entrada.php');
 }
 
-if (isset($_GET["accao"], $_GET['status'], $_GET['code']) && $_GET["accao"] == "apagar") {
+if (isset($_GET["accao"], $_GET['status'], $_GET['codigo']) && $_GET["accao"] == "apagar") {
 	$id_usuario = $_GET["codigo"];
 	$status = $_GET["estado"];
 

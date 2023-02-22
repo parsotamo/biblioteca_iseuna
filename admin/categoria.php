@@ -223,7 +223,7 @@ include '../cabecalho.php';
 										</div>
 
 										<div class="mt-4 mb-0">
-											<input type="hidden" name="id" value="<?php echo $_GET['code']; ?>" />
+											<input type="hidden" name="id" value="<?php echo $_GET['codigo']; ?>" />
 											<input type="submit" name="edit_category" class="btn btn-primary" value="Modificar" />
 										</div>
 
