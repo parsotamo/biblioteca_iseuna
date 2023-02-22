@@ -14,7 +14,7 @@ $message = '';
 
 $error = '';
 
-if (isset($_POST["adicionar"])) {
+if (isset($_POST["adicionar_autor"])) {
 	$formdata = array();
 
 	if (empty($_POST["nome"])) {
@@ -148,7 +148,7 @@ include '../cabecalho.php';
 	<?php
 
 	if (isset($_GET["accao"])) {
-		if ($_GET["accao"] == "adicionar_autor") {
+		if ($_GET["accao"] == "adicionar") {
 	?>
 
 			<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border">
