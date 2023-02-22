@@ -71,11 +71,13 @@ if (isset($_POST['save_button'])) {
 	if ($mensagem == '') {
 		$tmp_name = $_FILES['foto']['tmp_name'];
 		$path = "upload/" . $formdata['foto'];
-		unlink($path);
+		if (unlink($path) != null) {
+			unlink($path);
+		}
 		list($width, $height) = getimagesize($tmp_name);
 		move_uploaded_file($tmp_name, $path);
-		$newwidth = 150;
-		$newheight = 150;
+		$new_width = 150;
+		$new_height = 150;
 		move_uploaded_file($tmp_name, $path);
 		$new_img = imagecreatetruecolor($new_width, $new_height);
 		switch ($img_type) {

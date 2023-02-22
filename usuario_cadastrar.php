@@ -98,8 +98,8 @@ if (isset($_POST["register_button"])) {
 			$codigo_verificacao = md5(uniqid());
 
 			$user_unique_id = 'U' . rand(10000000, 99999999);
-			$newwidth = 150;
-			$newheight = 150;
+			$new_width = 150;
+			$new_height = 150;
 			list($width, $height) = getimagesize($tmp_name);
 			move_uploaded_file($tmp_name, $path);
 			$new_img = imagecreatetruecolor($new_width, $new_height);
