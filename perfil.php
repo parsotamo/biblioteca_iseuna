@@ -72,10 +72,48 @@ if (isset($_POST['save_button'])) {
 	if ($mensagem == '') {
 		$path = "upload/" . $formdata['foto'];
 		unlink($path);
+		list($width, $height) = getimagesize($tmp_name);
 		move_uploaded_file($tmp_name, $path);
-		$img = new Imagick($path);
-		$img->resizeImage(150, 150, Imagick::FILTER_LANCZOS, 1);
-		$img->writeImage($path);
+		$newwidth = 150;
+		$newheight = 150;
+		move_uploaded_file($tmp_name, $path);
+		$new_img = imagecreatetruecolor($new_width, $new_height);
+		switch ($img_type) {
+			case 'image/jpg':
+				$orig = imagecreatefromjpeg($orig_path);
+				break;
+			case 'image/jpeg':
+				$orig = imagecreatefromjpeg($orig_path);
+				break;
+			case 'image/png':
+				$orig = imagecreatefrompng($orig_path);
+				break;
+		}
+		imagecopyresampled(
+			$new_img,
+			$orig,
+			0,
+			0,
+			0,
+			0,
+			$new_width,
+			$new_height,
+			$width,
+			$height
+		);
+		switch ($media_type) {
+			case 'image/jpg':
+				imagejpeg($new_img, $path);
+			case 'image/jpeg':
+				imagejpeg($new_img, $path);
+				break;
+			case 'image/png':
+				imagepng($new_img, $path);
+				break;
+		}
+		// $img = new Imagick($path);
+		// $img->resizeImage(150, 150, Imagick::FILTER_LANCZOS, 1);
+		// $img->writeImage($path);
 		$data = array(
 			':nome'			=>	$formdata['nome'],
 			':endereco'			=>	$formdata['endereco'],

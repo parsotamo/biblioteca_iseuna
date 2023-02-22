@@ -5,7 +5,7 @@
 // use PHPMailer\PHPMailer\SMTP;
 // use PHPMailer\PHPMailer\Exception;
 
-use SRC\Imagick;
+// use SRC\Imagick;
 
 require 'vendor/autoload.php';
 include 'base_dados_con.php';
@@ -98,11 +98,47 @@ if (isset($_POST["register_button"])) {
 			$codigo_verificacao = md5(uniqid());
 
 			$user_unique_id = 'U' . rand(10000000, 99999999);
-
+			$newwidth = 150;
+			$newheight = 150;
+			list($width, $height) = getimagesize($tmp_name);
 			move_uploaded_file($tmp_name, $path);
-			$img = new Imagick($path);
-			$img->resizeImage(150, 150, Imagick::FILTER_LANCZOS, 1);
-			$img->writeImage($path);
+			$new_img = imagecreatetruecolor($new_width, $new_height);
+			switch ($img_type) {
+				case 'image/jpg':
+					$orig = imagecreatefromjpeg($orig_path);
+					break;
+				case 'image/jpeg':
+					$orig = imagecreatefromjpeg($orig_path);
+					break;
+				case 'image/png':
+					$orig = imagecreatefrompng($orig_path);
+					break;
+			}
+			imagecopyresampled(
+				$new_img,
+				$orig,
+				0,
+				0,
+				0,
+				0,
+				$new_width,
+				$new_height,
+				$width,
+				$height
+			);
+			switch ($media_type) {
+				case 'image/jpg':
+					imagejpeg($new_img, $path);
+				case 'image/jpeg':
+					imagejpeg($new_img, $path);
+					break;
+				case 'image/png':
+					imagepng($new_img, $path);
+					break;
+			}
+			// $img = new Imagick($path);
+			// $img->resizeImage(150, 150, Imagick::FILTER_LANCZOS, 1);
+			// $img->writeImage($path);
 
 			$data = array(
 				'unique_id'				=>  $user_unique_id,
