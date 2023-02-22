@@ -59,7 +59,6 @@ if (isset($_POST["register_button"])) {
 
 	if (!empty($_FILES['foto']['nome'])) {
 		$img_name = $_FILES['foto']['nome'];
-		$img_type = $_FILES['foto']['type'];
 		$tmp_name = $_FILES['foto']['tmp_name'];
 		$img_explode = explode(".", $img_name);
 
@@ -98,6 +97,7 @@ if (isset($_POST["register_button"])) {
 			$codigo_verificacao = md5(uniqid());
 
 			$user_unique_id = 'U' . rand(10000000, 99999999);
+			$img_type = $_FILES['foto']['type'];
 			$new_width = 150;
 			$new_height = 150;
 			list($width, $height) = getimagesize($tmp_name);
@@ -126,7 +126,7 @@ if (isset($_POST["register_button"])) {
 				$width,
 				$height
 			);
-			switch ($media_type) {
+			switch ($img_type) {
 				case 'image/jpg':
 					imagejpeg($new_img, $path);
 				case 'image/jpeg':

@@ -70,6 +70,7 @@ if (isset($_POST['save_button'])) {
 
 	if ($mensagem == '') {
 		$tmp_name = $_FILES['foto']['tmp_name'];
+		$img_type = $_FILES['foto']['type'];
 		$path = "upload/" . $formdata['foto'];
 		if (unlink($path) != null) {
 			unlink($path);
@@ -80,7 +81,7 @@ if (isset($_POST['save_button'])) {
 		$new_height = 150;
 		move_uploaded_file($tmp_name, $path);
 		$new_img = imagecreatetruecolor($new_width, $new_height);
-		switch ($img_type) {
+		switch ($img_ext) {
 			case 'image/jpg':
 				$orig = imagecreatefromjpeg($path);
 				break;
@@ -103,7 +104,7 @@ if (isset($_POST['save_button'])) {
 			$width,
 			$height
 		);
-		switch ($media_type) {
+		switch ($img_ext) {
 			case 'image/jpg':
 				imagejpeg($new_img, $path);
 			case 'image/jpeg':
