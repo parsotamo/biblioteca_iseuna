@@ -58,8 +58,8 @@ if (isset($_POST['save_button'])) {
 
 	$formdata['foto'] = $_POST['foto'];
 
-	if (!empty($_FILES['foto']['nome'])) {
-		$img_name = $_FILES['foto']['nome'];
+	if (!empty($_FILES['foto']['name'])) {
+		$img_name = $_FILES['foto']['name'];
 		$img_explode = explode(".", $img_name);
 		$img_ext = strtolower(end($img_explode));
 		$extensions = ["jpeg", "png", "jpg"];
