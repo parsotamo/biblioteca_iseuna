@@ -148,7 +148,7 @@ include '../cabecalho.php';
 	<?php
 
 	if (isset($_GET["accao"])) {
-		if ($_GET["accao"] == "add") {
+		if ($_GET["accao"] == "adicionar_autor") {
 	?>
 
 			<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border">
