@@ -52,7 +52,7 @@ if (isset($_POST["add_armario"])) {
 
 			$statement->execute($data);
 
-			header('location:armario.php?msg=add');
+			header('location:armario.php?msg=adicionar');
 		}
 	}
 }
@@ -268,7 +268,7 @@ include '../cabecalho.php';
 						<i class="fas fa-table me-1"></i> Gestão de Armário
 					</div>
 					<div class="col col-md-6" align="right">
-						<a href="armario.php?accao=add" class="btn btn-success btn-sm">Adicionar</a>
+						<a href="armario.php?accao=adicionar" class="btn btn-success btn-sm">Adicionar</a>
 					</div>
 				</div>
 			</div>

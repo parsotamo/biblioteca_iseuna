@@ -52,7 +52,7 @@ if (isset($_POST['add_category'])) {
 
 			$statement->execute($data);
 
-			header('location:categoria.php?msg=add');
+			header('location:categoria.php?msg=adicionar');
 		}
 	}
 }
@@ -275,7 +275,7 @@ include '../cabecalho.php';
 						<i class="fas fa-table me-1"></i> Gestão de Categoria
 					</div>
 					<div class="col col-md-6" align="right">
-						<a href="categoria.php?accao=add" class="btn btn-success btn-sm">Adicionar</a>
+						<a href="categoria.php?accao=adicionar" class="btn btn-success btn-sm">Adicionar</a>
 					</div>
 				</div>
 			</div>

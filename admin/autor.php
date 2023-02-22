@@ -52,7 +52,7 @@ if (isset($_POST["adicionar_autor"])) {
 
 			$statement->execute($data);
 
-			header('location:autor.php?msg=add');
+			header('location:autor.php?msg=adicionar');
 		}
 	}
 }
@@ -265,7 +265,7 @@ include '../cabecalho.php';
 						<i class="fas fa-table me-1"></i> Gestão de Autores
 					</div>
 					<div class="col col-md-6" align="right">
-						<a href="autor.php?accao=add" class="btn btn-success btn-sm">Adicionar</a>
+						<a href="autor.php?accao=adicionar" class="btn btn-success btn-sm">Adicionar</a>
 					</div>
 				</div>
 			</div>

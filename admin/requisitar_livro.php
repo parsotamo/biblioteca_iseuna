@@ -99,7 +99,7 @@ if (isset($_POST["issue_book_button"])) {
 
                                     $connect->query($query);
 
-                                    header('location:requisitar_livro.php?msg=add');
+                                    header('location:requisitar_livro.php?msg=adicionar');
                                 } else {
                                     $error .= 'Usuário atingiu limite máximo de requisição de livros, Primeiro retorne livros pendentes.';
                                 }
@@ -472,7 +472,7 @@ include '../cabecalho.php';
                         <i class="fas fa-table me-1"></i> Gestão de Pedidos de Livros
                     </div>
                     <div class="col col-md-6" align="right">
-                        <a href="requisitar_livro.php?accao=add" class="btn btn-success btn-sm">Requisitar</a>
+                        <a href="requisitar_livro.php?accao=adicionar" class="btn btn-success btn-sm">Requisitar</a>
                     </div>
                 </div>
             </div>
