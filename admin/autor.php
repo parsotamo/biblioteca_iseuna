@@ -14,7 +14,7 @@ $message = '';
 
 $error = '';
 
-if (isset($_POST["adicionar_autor"])) {
+if (isset($_POST["adicionar"])) {
 	$formdata = array();
 
 	if (empty($_POST["nome"])) {
