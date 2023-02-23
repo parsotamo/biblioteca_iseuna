@@ -1,15 +1,15 @@
 <?php
 
 //base_dados_con.php
-$db_usuario = "b2230ba974860a";
-$db_senha = "443fe718";
-$db_host = "us-cdbr-east-06.cleardb.net";
-$db_nome = "heroku_152f715103496d7";
+require 'vendor/autoload.php';
 
-try {
-    $connect = new PDO("mysql:host=$db_host;dbname=$db_nome", $db_usuario, $db_senha);
-} catch (PDOException $pe) {
-    die("Erro de conexão de Base de Dados!");
+$dotenv = Dotenv\dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+if ($_ENV["DEV"]) {
+    $connect = new PDO("mysql:host=localhost:3306;dbname=db_iseuna", "root", "123");
+} else {
+    $connect = new PDO('mysql:host=' . $_ENV['DB_HOST'] . ';dbname=' . $_ENV['DB_NOME'], $_ENV['DB_USUARIO'], $_ENV['DB_SENHA']);
 }
 
 session_start();
