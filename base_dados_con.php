@@ -1,12 +1,11 @@
 <?php
 
 //base_dados_con.php
-require 'vendor/autoload.php';
+// require 'vendor/autoload.php';
 
-$dotenv = Dotenv\dotenv::createImmutable(__DIR__);
-$dotenv->load();
+// $dotenv = Dotenv\dotenv::createImmutable(__DIR__);
+// $dotenv->load();
 
-echo getenv("DB_USUARIO");
 if (getenv("DEV")) {
     $connect = new PDO("mysql:host=localhost:3306;dbname=db_iseuna", "root", "123");
 } else {
