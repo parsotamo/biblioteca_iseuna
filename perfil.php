@@ -5,7 +5,7 @@
 
 // use SRC\Imagick;
 
-// require 'vendor/autoload.php';
+require 'vendor/autoload.php';
 include 'base_dados_con.php';
 
 include 'funcoes.php';
