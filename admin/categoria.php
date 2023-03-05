@@ -57,7 +57,7 @@ if (isset($_POST['adicionar_categoria'])) {
 	}
 }
 
-if (isset($_POST["edit_category"])) {
+if (isset($_POST["editar_categoria"])) {
 	$formdata = array();
 
 	if (empty($_POST["nome"])) {
@@ -224,7 +224,7 @@ include '../cabecalho.php';
 
 										<div class="mt-4 mb-0">
 											<input type="hidden" name="id" value="<?php echo $_GET['codigo']; ?>" />
-											<input type="submit" name="edit_category" class="btn btn-danger" value="Modificar" />
+											<input type="submit" name="editar_categoria" class="btn btn-danger" value="Modificar" />
 										</div>
 
 									</form>
