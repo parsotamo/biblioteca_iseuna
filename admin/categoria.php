@@ -123,7 +123,7 @@ if (isset($_GET["accao"], $_GET["codigo"], $_GET["estado"]) && $_GET["accao"] ==
 
 	$statement->execute($data);
 
-	header('location:categoria.php?msg=' . strtolower($Estado) . '');
+	header('location:categoria.php?msg=' . strtolower($estado) . '');
 }
 
 
@@ -339,15 +339,15 @@ include '../cabecalho.php';
 				</table>
 
 				<script>
-					function apagar_dados(code, Estado) {
-						var novo_Estado = 'desativado';
+					function apagar_dados(code, estado) {
+						var novo_estado = 'desativado';
 
-						if (Estado == 'desativado') {
-							novo_Estado = 'activado';
+						if (estado == 'desativado') {
+							novo_estado = 'activado';
 						}
 
-						if (confirm("Tem certeza que deseja " + novo_Estado + " esta Categoria")) {
-							window.location.href = "categoria.php?accao=apagar&codigo=" + code + "&estado=" + novo_Estado + "";
+						if (confirm("Tem certeza que deseja " + novo_estado + " esta Categoria")) {
+							window.location.href = "categoria.php?accao=apagar&codigo=" + code + "&estado=" + novo_estado + "";
 						}
 					}
 				</script>
