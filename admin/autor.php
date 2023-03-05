@@ -99,7 +99,7 @@ if (isset($_POST["editar_autor"])) {
 
 			$statement->execute($data);
 
-			header('location:autor.php?msg=edit');
+			header('location:autor.php?msg=editar');
 		}
 	}
 }

@@ -99,7 +99,7 @@ if (isset($_POST["edit_category"])) {
 
 			$statement->execute($data);
 
-			header('location:categoria.php?msg=edit');
+			header('location:categoria.php?msg=editar');
 		}
 	}
 }

@@ -143,7 +143,7 @@ if (isset($_POST["edit_book"])) {
 
 		$statement->execute($data);
 
-		header('location:livro.php?msg=edit');
+		header('location:livro.php?msg=editar');
 	}
 }
 

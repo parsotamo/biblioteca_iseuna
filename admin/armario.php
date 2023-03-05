@@ -99,7 +99,7 @@ if (isset($_POST["edit_armario"])) {
 
 			$statement->execute($data);
 
-			header('location:armario.php?msg=edit');
+			header('location:armario.php?msg=editar');
 		}
 	}
 }
