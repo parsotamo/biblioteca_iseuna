@@ -14,7 +14,7 @@ $message = '';
 
 $error = '';
 
-if (isset($_POST['edit_admin'])) {
+if (isset($_POST['editar_admin'])) {
 
 	$formdata = array();
 
@@ -110,7 +110,7 @@ include '../cabecalho.php';
 								<input type="senha" name="senha" id="senha" class="form-control" value="<?php echo $row['senha']; ?>" />
 							</div>
 							<div class="mt-4 mb-0">
-								<input type="submit" name="edit_admin" class="btn btn-danger" value="Actualizar" />
+								<input type="submit" name="editar_admin" class="btn btn-danger" value="Actualizar" />
 							</div>
 						</form>
 

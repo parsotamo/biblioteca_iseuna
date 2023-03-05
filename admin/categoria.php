@@ -14,7 +14,7 @@ $message = '';
 
 $error = '';
 
-if (isset($_POST['add_category'])) {
+if (isset($_POST['adicionar_categoria'])) {
 	$formdata = array();
 
 	if (empty($_POST['nome'])) {
@@ -104,11 +104,11 @@ if (isset($_POST["edit_category"])) {
 	}
 }
 
-if (isset($_GET["accao"], $_GET["codigo"], $_GET["Estado"]) && $_GET["accao"] == "apagar") {
+if (isset($_GET["accao"], $_GET["codigo"], $_GET["estado"]) && $_GET["accao"] == "apagar") {
 	$id = $_GET["codigo"];
-	$Estado = $_GET["Estado"];
+	$estado = $_GET["estado"];
 	$data = array(
-		':estado'			=>	$Estado,
+		':estado'			=>	$estado,
 		':actualizado_em'		=>	get_data_temp($connect),
 		':id'				=>	$id
 	);
@@ -176,7 +176,7 @@ include '../cabecalho.php';
 								</div>
 
 								<div class="mt-4 mb-0">
-									<input type="submit" name="add_category" value="Adicionar" class="btn btn-success" />
+									<input type="submit" name="adicionar_categoria" value="Adicionar" class="btn btn-success" />
 								</div>
 
 							</form>
@@ -257,11 +257,11 @@ include '../cabecalho.php';
 			if ($_GET["msg"] == 'editar') {
 				echo '<div class="alert alert-success alert-dismissible fade show" role="alert">Dados de Categoria Actualizados<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
 			}
-			if ($_GET["msg"] == 'disable') {
+			if ($_GET["msg"] == 'desativado') {
 				echo '<div class="alert alert-success alert-dismissible fade show" role="alert">Category Estado alterado para Desativado <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
 			}
 
-			if ($_GET['msg'] == 'enable') {
+			if ($_GET['msg'] == 'activado') {
 				echo '<div class="alert alert-success alert-dismissible fade show" role="alert">Estado alterado para Activado <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
 			}
 		}
@@ -347,7 +347,7 @@ include '../cabecalho.php';
 						}
 
 						if (confirm("Tem certeza que deseja " + novo_Estado + " esta Categoria")) {
-							window.location.href = "categoria.php?accao=apagar&codigo=" + code + "&Estado=" + novo_Estado + "";
+							window.location.href = "categoria.php?accao=apagar&codigo=" + code + "&estado=" + novo_Estado + "";
 						}
 					}
 				</script>

@@ -78,7 +78,7 @@ if (isset($_POST["add_book"])) {
 	}
 }
 
-if (isset($_POST["edit_book"])) {
+if (isset($_POST["editar_livro"])) {
 	$formdata = array();
 
 	if (empty($_POST["nome"])) {
@@ -149,10 +149,10 @@ if (isset($_POST["edit_book"])) {
 
 if (isset($_GET["accao"], $_GET["codigo"], $_GET["estado"]) && $_GET["accao"] == "apagar") {
 	$id = $_GET["codigo"];
-	$status = $_GET["estado"];
+	$estado = $_GET["estado"];
 
 	$data = array(
-		':estado'		=>	$status,
+		':estado'		=>	$estado,
 		':actualizado_em'	=>	get_data_temp($connect),
 		':id'			=>	$id
 	);
@@ -168,7 +168,7 @@ if (isset($_GET["accao"], $_GET["codigo"], $_GET["estado"]) && $_GET["accao"] ==
 
 	$statement->execute($data);
 
-	header('location:livro.php?msg=' . strtolower($status) . '');
+	header('location:livro.php?msg=' . strtolower($estado) . '');
 }
 
 
@@ -343,7 +343,7 @@ include '../cabecalho.php';
 								</div>
 								<div class="mt-4 mb-3 text-center">
 									<input type="hidden" name="id" value="<?php echo $book_row['id']; ?>" />
-									<input type="submit" name="edit_book" class="btn btn-warning" value="Actualizar" />
+									<input type="submit" name="editar_livro" class="btn btn-warning" value="Actualizar" />
 								</div>
 							</form>
 							<script>

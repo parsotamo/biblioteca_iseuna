@@ -12,7 +12,7 @@ if (!is_admin_entrada()) {
 
 $error = '';
 
-if (isset($_POST["issue_book_button"])) {
+if (isset($_POST["requisitar_livro_btn"])) {
     $formdata = array();
 
     if (empty($_POST["id_livro"])) {
@@ -120,7 +120,7 @@ if (isset($_POST["issue_book_button"])) {
     }
 }
 
-if (isset($_POST["book_return_button"])) {
+if (isset($_POST["devolver_livro_btn"])) {
     if (isset($_POST["book_return_confirmation"])) {
         $data = array(
             ':data_retorno'     =>  get_data_temp($connect),
@@ -201,7 +201,7 @@ include '../cabecalho.php';
                                     <span id="unique_id_result"></span>
                                 </div>
                                 <div class="mt-4 mb-0">
-                                    <input type="submit" name="issue_book_button" class="btn btn-success" value="Requisitar" />
+                                    <input type="submit" name="requisitar_livro_btn" class="btn btn-success" value="Requisitar" />
                                 </div>
                             </form>
                             <script>
@@ -394,7 +394,7 @@ include '../cabecalho.php';
                         <label><input type="checkbox" name="book_return_confirmation" value="Yes" /> Eu confirmo que recebi o Livro requisitado</label>
                         <br />
                         <div class="mt-4 mb-4">
-                            <input type="submit" name="book_return_button" value="Devolver Livro" class="btn btn-danger" />
+                            <input type="submit" name="devolver_livro_btn" value="Devolver Livro" class="btn btn-danger" />
                         </div>
                         ';
                     }
@@ -405,7 +405,7 @@ include '../cabecalho.php';
                         $form_item = '
                         <label><input type="checkbox" name="book_return_confirmation" value="Yes" /> Eu confirmo que recebi o livro requisitado</label><br />
                         <div class="mt-4 mb-4">
-                            <input type="submit" name="book_return_button" value="Devolver Livro" class="btn btn-danger" />
+                            <input type="submit" name="devolver_livro_btn" value="Devolver Livro" class="btn btn-danger" />
                         </div>
                         ';
                     }

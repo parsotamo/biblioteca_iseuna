@@ -13,7 +13,7 @@ if (!is_admin_entrada()) {
 
 $message = '';
 
-if (isset($_POST['edit_setting'])) {
+if (isset($_POST['editar_definicoes'])) {
 	$data = array(
 		':nome'					=>	$_POST['nome'],
 		':endereco'				=>	$_POST['endereco'],
@@ -152,7 +152,7 @@ include '../cabecalho.php';
 						</div>
 					</div>
 					<div class="mt-4 mb-0">
-						<input type="submit" name="edit_setting" class="btn btn-danger" value="Salvar" />
+						<input type="submit" name="editar_definicoes" class="btn btn-danger" value="Salvar" />
 					</div>
 					<script type="text/javascript">
 						document.getElementById('moeda').value = "<?php echo $row['moeda']; ?>";
