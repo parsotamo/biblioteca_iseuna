@@ -27,7 +27,7 @@ include 'cabecalho.php';
 
 <div class="container-fluid py-4" style="min-height: 700px;">
 
-	<h1>Search Book</h1>
+	<h1>Pesquisar Livro</h1>
 
 	<div class="card mb-4">
 		<div class="card-header">
