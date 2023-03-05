@@ -1,0 +1,42 @@
+:root{
+    --color-primary: rgb(255, 231, 216);
+    --color-primary-tint: rgb(156, 20, 39);
+}
+@font-face {
+    font-family: 'Lato Regular';
+    src: url(../fonts/Lato-Regular.ttf);
+  }
+  @font-face {
+    font-family: 'Bebas Neue';
+    src: url(../fonts/BebasNeue-Regular.ttf);
+  }
+body{
+    font-family: 'Lato Regular';
+    background-image: url(../images/biblioteca_iseuna_bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.bg-color{
+    background-color: var(--color-primary);
+}
+.bg-color-tint{
+    background-color: var(--color-primary-tint);
+}
+
+.heading-primary{
+    font-family: 'Bebas Neue';
+    font-weight: 900;
+    font-size: 40px;
+}
+.heading-primary-tint{
+    font-family: 'Bebas Neue';
+    font-weight: 900;
+    font-size: 40px;
+    color: var(--color-primary-tint);
+}
+.heading-primary-tint--small{
+    font-family: 'Bebas Neue';
+    font-weight: 900;
+    font-size: 24px;
+    color: var(--color-primary-tint);
+}

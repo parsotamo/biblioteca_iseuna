@@ -9,17 +9,15 @@ if (is_usuario_entrada()) {
 
 include 'cabecalho.php';
 
-
-
 ?>
 
-<div class="p-5 mb-4 bg-light rounded-3">
+<div class="p-5 mb-4 rounded-3 bg-color">
 
 	<div class="container-fluid py-5">
 
-		<h1 class="display-5 fw-bold">Sistema de Gestão de Biblioteca da faculdade ISEUNA</h1>
+		<h1 class="heading-primary">Sistema de Gestão de Biblioteca da faculdade ISEUNA</h1>
 
-		<p class="fs-4">Este é um sistema de gerenciamento de biblioteca simples que usa para manter o registro da biblioteca. Este sistema de gerenciamento de biblioteca foi feito usando script PHP, banco de dados MySQL, JavaScript Vanilla e framework Bootstrap 5. Este é o Projeto PHP no Sistema de Gerenciamento de Biblioteca Online.</p>
+		<p class="fs-4 text-dark">Este é um sistema de gerenciamento de biblioteca simples que usa para manter o registro da biblioteca. Este sistema de gerenciamento de biblioteca foi feito usando script PHP, banco de dados MySQL, JavaScript Vanilla e framework Bootstrap 5. Este é o Projeto PHP no Sistema de Gerenciamento de Biblioteca Online.</p>
 
 	</div>
 
@@ -29,7 +27,7 @@ include 'cabecalho.php';
 
 	<div class="col-md-6">
 
-		<div class="h-100 p-5 text-white bg-dark rounded-3">
+		<div class="h-100 p-5 text-white rounded-3 bg-color-tint">
 
 			<h2>Entrada de Admin</h2>
 			<p></p>
@@ -41,7 +39,7 @@ include 'cabecalho.php';
 
 	<div class="col-md-6">
 
-		<div class="h-100 p-5 bg-light border rounded-3">
+		<div class="h-100 p-5 bg-color border rounded-3">
 
 			<h2>Entrada de Usuário</h2>
 
@@ -49,7 +47,7 @@ include 'cabecalho.php';
 
 			<a href="usuario_entrada.php" class="btn btn-outline-secondary">Entrada</a>
 
-			<a href="usuario_cadastrar.php" class="btn btn-outline-primary">Registo</a>
+			<a href="usuario_cadastrar.php" class="btn btn-outline-danger">Registo</a>
 
 		</div>
 

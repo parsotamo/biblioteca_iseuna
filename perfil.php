@@ -209,7 +209,7 @@ include 'cabecalho.php';
 							<img src="upload/<?php echo $row['foto']; ?>?<?php echo time(); ?>" width="100" class="img-thumbnail" />
 						</div>
 						<div class="text-center mt-4 mb-2">
-							<input type="submit" name="save_button" class="btn btn-primary" value="Actualizar" />
+							<input type="submit" name="save_button" class="btn btn-danger" value="Actualizar" />
 						</div>
 					</form>
 

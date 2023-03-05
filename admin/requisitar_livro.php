@@ -172,7 +172,7 @@ include '../cabecalho.php';
     if (isset($_GET["accao"])) {
         if ($_GET["accao"] == 'adicionar') {
     ?>
-            <ol class="breadcrumb mt-4 mb-4 bg-light p-2 border">
+            <ol class="breadcrumb mt-4 mb-4 bg-color p-2 border">
                 <li class="breadcrumb-item"><a href="index.php">Painel de Controle</a></li>
                 <li class="breadcrumb-item"><a href="requisitar_livro.php">Gestão de Pedidos de Livros</a></li>
                 <li class="breadcrumb-item active">Requisitar Livro</li>
@@ -318,7 +318,7 @@ include '../cabecalho.php';
                     $user_result = $connect->query($query);
 
                     echo '
-                    <ol class="breadcrumb mt-4 mb-4 bg-light p-2 border">
+                    <ol class="breadcrumb mt-4 mb-4 bg-color p-2 border">
                         <li class="breadcrumb-item"><a href="index.php">Painel de Controle</a></li>
                         <li class="breadcrumb-item"><a href="requisitar_livro.php">Gestão de Pedidos de Livros</a></li>
                         <li class="breadcrumb-item active">Visualizar Detalhes de Livros Requisitados</li>
@@ -394,7 +394,7 @@ include '../cabecalho.php';
                         <label><input type="checkbox" name="book_return_confirmation" value="Yes" /> Eu confirmo que recebi o Livro requisitado</label>
                         <br />
                         <div class="mt-4 mb-4">
-                            <input type="submit" name="book_return_button" value="Devolver Livro" class="btn btn-primary" />
+                            <input type="submit" name="book_return_button" value="Devolver Livro" class="btn btn-danger" />
                         </div>
                         ';
                     }
@@ -405,7 +405,7 @@ include '../cabecalho.php';
                         $form_item = '
                         <label><input type="checkbox" name="book_return_confirmation" value="Yes" /> Eu confirmo que recebi o livro requisitado</label><br />
                         <div class="mt-4 mb-4">
-                            <input type="submit" name="book_return_button" value="Devolver Livro" class="btn btn-primary" />
+                            <input type="submit" name="book_return_button" value="Devolver Livro" class="btn btn-danger" />
                         </div>
                         ';
                     }
@@ -446,7 +446,7 @@ include '../cabecalho.php';
         }
     } else {
         ?>
-        <ol class="breadcrumb mt-4 mb-4 bg-light p-2 border">
+        <ol class="breadcrumb mt-4 mb-4 bg-color p-2 border">
             <li class="breadcrumb-item"><a href="index.php">Painel de Controle</a></li>
             <li class="breadcrumb-item active">Gestão de Pedidos de Livros</li>
         </ol>

@@ -253,7 +253,7 @@ include 'cabecalho.php';
 						<span class="text-muted">Somente imagem no formato .jpg ou .png é permitido. O tamanho será redimensionado para 150 x 150</span>
 					</div>
 					<div class="text-center mt-4 mb-2">
-						<input type="submit" name="register_button" class="btn btn-primary" value="Cadastrar" />
+						<input type="submit" name="register_button" class="btn btn-danger" value="Cadastrar" />
 					</div>
 				</form>
 			</div>

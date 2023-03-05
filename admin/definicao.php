@@ -62,7 +62,7 @@ include '../cabecalho.php';
 <div class="container-fluid px-4">
 	<h1 class="mt-4">Definições</h1>
 
-	<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border">
+	<ol class="breadcrumb mt-4 mb-4 bg-color p-2 border">
 		<li class="breadcrumb-item"><a href="index.php">Painel de Controle</a></li>
 		<li class="breadcrumb-item active">Definições</a></li>
 	</ol>
@@ -152,7 +152,7 @@ include '../cabecalho.php';
 						</div>
 					</div>
 					<div class="mt-4 mb-0">
-						<input type="submit" name="edit_setting" class="btn btn-primary" value="Salvar" />
+						<input type="submit" name="edit_setting" class="btn btn-danger" value="Salvar" />
 					</div>
 					<script type="text/javascript">
 						document.getElementById('moeda').value = "<?php echo $row['moeda']; ?>";

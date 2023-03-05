@@ -193,7 +193,7 @@ include '../cabecalho.php';
 		if ($_GET["accao"] == 'adicionar') {
 	?>
 
-			<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border">
+			<ol class="breadcrumb mt-4 mb-4 bg-color p-2 border">
 				<li class="breadcrumb-item"><a href="index.php">Painel de Controle</a></li>
 				<li class="breadcrumb-item"><a href="livro.php">Gestão de Livro</a></li>
 				<li class="breadcrumb-item active">Adicionar Livro</li>
@@ -282,7 +282,7 @@ include '../cabecalho.php';
 
 				foreach ($book_result as $book_row) {
 			?>
-					<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border">
+					<ol class="breadcrumb mt-4 mb-4 bg-color p-2 border">
 						<li class="breadcrumb-item"><a href="index.php">Painel de Controle</a></li>
 						<li class="breadcrumb-item"><a href="livro.php">Gestão de Livro</a></li>
 						<li class="breadcrumb-item active">Actualizar Livro</li>
@@ -343,7 +343,7 @@ include '../cabecalho.php';
 								</div>
 								<div class="mt-4 mb-3 text-center">
 									<input type="hidden" name="id" value="<?php echo $book_row['id']; ?>" />
-									<input type="submit" name="edit_book" class="btn btn-primary" value="Actualizar" />
+									<input type="submit" name="edit_book" class="btn btn-warning" value="Actualizar" />
 								</div>
 							</form>
 							<script>
@@ -359,7 +359,7 @@ include '../cabecalho.php';
 		}
 	} else {
 		?>
-		<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border">
+		<ol class="breadcrumb mt-4 mb-4 bg-color p-2 border">
 			<li class="breadcrumb-item"><a href="index.php">Painel de Controle</a></li>
 			<li class="breadcrumb-item active">Gestão de Livro</li>
 		</ol>
@@ -447,7 +447,7 @@ include '../cabecalho.php';
         					<td>' . $row["adicionado_em"] . '</td>
         					<td>' . $row["actualizado_em"] . '</td>
         					<td>
-        						<a href="livro.php?accao=edit&codigo=' . converter_dados($row["id"]) . '" class="btn btn-sm btn-primary">Actualizar</a>
+        						<a href="livro.php?accao=edit&codigo=' . converter_dados($row["id"]) . '" class="btn btn-sm btn-warning">Actualizar</a>
         						<button type="button" name="delete_button" class="btn btn-' . $estadoCor . ' btn-sm" onclick="apagar_dados(`' . $row["id"] . '`, `' . $row["estado"] . '`)">' . $estadoString . '</button>
         					</td>
         				</tr>

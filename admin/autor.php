@@ -151,7 +151,7 @@ include '../cabecalho.php';
 		if ($_GET["accao"] == "adicionar") {
 	?>
 
-			<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border">
+			<ol class="breadcrumb mt-4 mb-4 bg-color p-2 border">
 				<li class="breadcrumb-item"><a href="index.php">Painel de Controle</a></li>
 				<li class="breadcrumb-item"><a href="autor.php">Gestão de Autores</a></li>
 				<li class="breadcrumb-item active">Adicionar Autor</li>
@@ -200,7 +200,7 @@ include '../cabecalho.php';
 				foreach ($author_result as $author_row) {
 			?>
 
-					<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border">
+					<ol class="breadcrumb mt-4 mb-4 bg-color p-2 border">
 						<li class="breadcrumb-item"><a href="index.php">Painel de Controle</a></li>
 						<li class="breadcrumb-item"><a href="autor.php">Gestão de Autores</a></li>
 						<li class="breadcrumb-item active">Alterar dados de Autor</li>
@@ -220,7 +220,7 @@ include '../cabecalho.php';
 										</div>
 										<div class="mt-4 mb-0">
 											<input type="hidden" name="id" value="<?php echo $_GET['codigo']; ?>" />
-											<input type="submit" name="editar_autor" class="btn btn-primary" value="Actualizar" />
+											<input type="submit" name="editar_autor" class="btn btn-danger" value="Actualizar" />
 										</div>
 									</form>
 								</div>
@@ -235,7 +235,7 @@ include '../cabecalho.php';
 	} else {
 
 		?>
-		<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border">
+		<ol class="breadcrumb mt-4 mb-4 bg-color p-2 border">
 			<li class="breadcrumb-item"><a href="index.php">Painel de Controle</a></li>
 			<li class="breadcrumb-item active">Gestão de Autores</li>
 		</ol>
@@ -308,7 +308,7 @@ include '../cabecalho.php';
 							<td>' . $row["criado_em"] . '</td>
 							<td>' . $row["actualizado_em"] . '</td>
 							<td>
-								<a href="autor.php?accao=edit&codigo=' . converter_dados($row["id"]) . '" class="btn btn-sm btn-primary">Edit</a>
+								<a href="autor.php?accao=edit&codigo=' . converter_dados($row["id"]) . '" class="btn btn-sm btn-warning">Alterar</a>
 								<button type="button" name="delete_button" class="btn btn-' . $estadoCor . ' btn-sm" onclick="apagar_dados(`' . $row["id"] . '`, `' . $row["estado"] . '`)">' . $estadoString . '</button>
 							</td>
 						</tr>

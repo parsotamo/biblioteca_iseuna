@@ -90,7 +90,7 @@ include 'cabecalho.php';
 						<input type="senha" name="senha" id="senha" class="form-control" />
 					</div>
 					<div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-						<input type="submit" name="login_button" class="btn btn-primary" value="Entrar" />
+						<input type="submit" name="login_button" class="btn btn-danger" value="Entrar" />
 					</div>
 				</form>
 			</div>

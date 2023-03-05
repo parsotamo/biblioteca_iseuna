@@ -72,7 +72,7 @@ include '../cabecalho.php';
 
 <div class="container-fluid px-4">
 	<h1 class="mt-4">Perfil</h1>
-	<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border">
+	<ol class="breadcrumb mt-4 mb-4 bg-color p-2 border">
 		<li class="breadcrumb-item"><a href="index.php">Painel de Controle</a></li>
 		<li class="breadcrumb-item active">Perfil</a></li>
 	</ol>
@@ -110,7 +110,7 @@ include '../cabecalho.php';
 								<input type="senha" name="senha" id="senha" class="form-control" value="<?php echo $row['senha']; ?>" />
 							</div>
 							<div class="mt-4 mb-0">
-								<input type="submit" name="edit_admin" class="btn btn-primary" value="Actualizar" />
+								<input type="submit" name="edit_admin" class="btn btn-danger" value="Actualizar" />
 							</div>
 						</form>
 

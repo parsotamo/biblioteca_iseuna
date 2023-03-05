@@ -18,6 +18,7 @@ define('ROOT_PATH', $_SERVER['DOCUMENT_ROOT']);
     <!-- Bootstrap core CSS -->
     <link href="<?php echo base_url() ?>biblioteca_iseuna/asset/css/simple-datatables-style.css" rel="stylesheet" />
     <link href="<?php echo base_url() ?>asset/css/styles.css" rel="stylesheet" />
+    <link href="<?php echo base_url() ?>asset/css/main.css" rel="stylesheet" />
     <script src="<?php echo base_url() ?>asset/js/font-awesome-5-all.min.js" crossorigin="anonymous"></script>
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="" sizes="180x180">
@@ -111,7 +112,7 @@ if (is_admin_entrada()) {
                                     <div class="row">
                                         <div class="col-md-6">
                                             <a href="index.php" class="d-flex align-items-center text-dark text-decoration-none">
-                                                <span class="fs-4">Sistema de Gestão da Biblioteca ISEUNA</span>
+                                                <span class="heading-primary-tint--small">Sistema de Gestão da Biblioteca ISEUNA</span>
                                             </a>
                                         </div>
                                         <div class="col-md-6">

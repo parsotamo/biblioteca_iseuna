@@ -95,7 +95,7 @@ include 'cabecalho.php';
 
 					<div class="d-flex align-items-center justify-content-between mt-4 mb-0">
 
-						<input type="submit" name="login_btn" class="btn btn-primary" value="Entrar" />
+						<input type="submit" name="login_btn" class="btn btn-danger" value="Entrar" />
 
 					</div>
 

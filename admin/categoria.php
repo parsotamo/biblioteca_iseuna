@@ -148,7 +148,7 @@ include '../cabecalho.php';
 		if ($_GET['action'] == 'adicionar') {
 	?>
 
-			<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border">
+			<ol class="breadcrumb mt-4 mb-4 bg-color p-2 border">
 				<li class="breadcrumb-item"><a href="index.php">Painel de Controle</a></li>
 				<li class="breadcrumb-item"><a href="categoria.php">Gestão de Categoria</a></li>
 				<li class="breadcrumb-item active">Adicionar Categoria</li>
@@ -202,7 +202,7 @@ include '../cabecalho.php';
 				foreach ($category_result as $category_row) {
 			?>
 
-					<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border">
+					<ol class="breadcrumb mt-4 mb-4 bg-color p-2 border">
 						<li class="breadcrumb-item"><a href="index.php">Painel de Controle</a></li>
 						<li class="breadcrumb-item"><a href="categoria.php">Gestão de Categorias</a></li>
 						<li class="breadcrumb-item active">Editar Categoria</li>
@@ -224,7 +224,7 @@ include '../cabecalho.php';
 
 										<div class="mt-4 mb-0">
 											<input type="hidden" name="id" value="<?php echo $_GET['codigo']; ?>" />
-											<input type="submit" name="edit_category" class="btn btn-primary" value="Modificar" />
+											<input type="submit" name="edit_category" class="btn btn-danger" value="Modificar" />
 										</div>
 
 									</form>
@@ -242,7 +242,7 @@ include '../cabecalho.php';
 	} else {
 
 		?>
-		<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border">
+		<ol class="breadcrumb mt-4 mb-4 bg-color p-2 border">
 			<li class="breadcrumb-item"><a href="index.php">Painel de Controle</a></li>
 			<li class="breadcrumb-item active">Gestão de Categoria</li>
 		</ol>
@@ -320,7 +320,7 @@ include '../cabecalho.php';
 							<td>' . $row["criado_em"] . '</td>
 							<td>' . $row["actualizado_em"] . '</td>
 							<td>
-								<a href="categoria.php?accao=edit&codigo=' . converter_dados($row["id"]) . '" class="btn btn-sm btn-primary">Alterar</a>
+								<a href="categoria.php?accao=edit&codigo=' . converter_dados($row["id"]) . '" class="btn btn-sm btn-warning">Alterar</a>
 								<button name="delete_button" class="btn-' . $cor_estado . ' btn-sm" onclick="apagar_dados(`' . $row["id"] . '`, `' . $row["estado"] . '`)"> ' . $string_estado . ' </button>
 							</td>
 						</tr>

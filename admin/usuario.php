@@ -49,7 +49,7 @@ include '../cabecalho.php';
 
 <div class="container-fluid py-4" style="min-height: 700px;">
 	<h1>Gestão de Usuários</h1>
-	<ol class="breadcrumb mt-4 mb-4 bg-light p-2 border">
+	<ol class="breadcrumb mt-4 mb-4 bg-color p-2 border">
 		<li class="breadcrumb-item"><a href="index.php">Painel de Controle</a></li>
 		<li class="breadcrumb-item active">Gestão de Usuários</li>
 	</ol>
