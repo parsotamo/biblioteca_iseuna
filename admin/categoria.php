@@ -144,8 +144,8 @@ include '../cabecalho.php';
 	<h1>Gestão de Categoria</h1>
 	<?php
 
-	if (isset($_GET['action'])) {
-		if ($_GET['action'] == 'adicionar') {
+	if (isset($_GET['accao'])) {
+		if ($_GET['accao'] == 'adicionar') {
 	?>
 
 			<ol class="breadcrumb mt-4 mb-4 bg-color p-2 border">
