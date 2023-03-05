@@ -320,7 +320,7 @@ include '../cabecalho.php';
 							<td>' . $row["criado_em"] . '</td>
 							<td>' . $row["actualizado_em"] . '</td>
 							<td>
-								<a href="categoria.php?accao=edit&codigo=' . converter_dados($row["id"]) . '" class="btn btn-sm btn-warning">Alterar</a>
+								<a href="categoria.php?accao=editar&codigo=' . converter_dados($row["id"]) . '" class="btn btn-sm btn-warning">Alterar</a>
 								<button name="delete_button" class="btn-' . $cor_estado . ' btn-sm" onclick="apagar_dados(`' . $row["id"] . '`, `' . $row["estado"] . '`)"> ' . $string_estado . ' </button>
 							</td>
 						</tr>

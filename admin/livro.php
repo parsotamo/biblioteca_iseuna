@@ -447,7 +447,7 @@ include '../cabecalho.php';
         					<td>' . $row["adicionado_em"] . '</td>
         					<td>' . $row["actualizado_em"] . '</td>
         					<td>
-        						<a href="livro.php?accao=edit&codigo=' . converter_dados($row["id"]) . '" class="btn btn-sm btn-warning">Actualizar</a>
+        						<a href="livro.php?accao=editar&codigo=' . converter_dados($row["id"]) . '" class="btn btn-sm btn-warning">Actualizar</a>
         						<button type="button" name="delete_button" class="btn btn-' . $estadoCor . ' btn-sm" onclick="apagar_dados(`' . $row["id"] . '`, `' . $row["estado"] . '`)">' . $estadoString . '</button>
         					</td>
         				</tr>

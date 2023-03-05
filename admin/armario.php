@@ -311,7 +311,7 @@ include '../cabecalho.php';
 							<td>' . $row["criado_em"] . '</td>
 							<td>' . $row["actualizado_em"] . '</td>
 							<td>
-								<a href="armario.php?accao=edit&codigo=' . converter_dados($row["id"]) . '" class="btn btn-sm btn-warning">Alterar</a>
+								<a href="armario.php?accao=editar&codigo=' . converter_dados($row["id"]) . '" class="btn btn-sm btn-warning">Alterar</a>
 								<button type="button" name="delete_button" class="btn btn-' . $estadoCor . ' btn-sm" onclick="apagar_dados(`' . $row["id"] . '`, `' . $row["estado"] . '`)">' . $estadoString . '</button>
 							</td>
 						</tr>
